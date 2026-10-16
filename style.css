@@ -1,3 +1,4 @@
+
 /* Configurações Globais */
 
 * {
@@ -26,7 +27,6 @@ body {
     #211014 45%,
     #4a101c 100%
   );
-
   color: #ffffff;
   text-align: center;
   padding: 28px 20px 25px;
@@ -37,11 +37,13 @@ body {
 /* Título */
 
 #cabecalho-principal h1 {
-  font-family: 'Pinyon Script', cursive;
-  font-size: clamp(48px, 6vw, 68px);
-  font-weight: 400;
-  letter-spacing: 1px;
-  line-height: 1;
+  font-family: 'Bodoni Moda', serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #a3263d;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.2;
   margin: 0;
 }
 
@@ -55,7 +57,7 @@ body {
   letter-spacing: 0.6px;
 }
 
-/* Detalhe do cabeçalho */
+/* Detalhe do Cabeçalho */
 
 #cabecalho-principal::after {
   content: "";
@@ -74,6 +76,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
   padding: 7px 20px;
   position: sticky;
@@ -222,28 +225,26 @@ footer p {
 /* Responsividade */
 
 @media (max-width: 700px) {
-
   #cabecalho-principal {
     padding: 45px 18px 40px;
   }
 
-  /* Título */
+  /* Título no celular */
 
-#cabecalho-principal h1 {
+  #cabecalho-principal h1 {
     font-family: 'Pinyon Script', cursive;
     font-size: clamp(55px, 7vw, 78px);
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 1.1;
     margin: 0;
-}
+  }
 
   #cabecalho-principal p {
     font-size: 14px;
   }
 
   nav {
-    flex-wrap: wrap;
     gap: 0;
     padding: 6px 10px;
   }
