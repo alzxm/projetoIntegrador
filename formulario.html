@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INTOLERÂNCIA RELIGIOSA - Compartilhe seu Relato</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="cabecalho-principal">
+    <h1>Intolerância Religiosa</h1>
+    <p>Projeto para respeitar as religiões</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="problema.html">Entenda o Problema</a>
+    <a href="impactos.html">Impactos</a>
+    <a href="combate.html">Como Combater</a>
+    <a href="imagens.html">Imagens</a>
+  </nav>
+
+  <main>
+    <!-- BLOCO DO FORMULÁRIO -->
+    <section class="cartao-conteudo">
+      <h2>Deixe seu Relato ou Experiência</h2>
+      <p>Espaço seguro para compartilhar vivências sobre intolerância religiosa.</p>
+     
+      <form id="formulario-relato">
+        <div class="campo-grupo">
+          <label for="nome">Seu Nome (Opcional):</label>
+          <input type="text" id="nome" placeholder="Ex: Anônimo ou Seu Nome">
+        </div>
+
+        <div class="campo-grupo">
+          <label for="tipo-relato">Sua relação com o caso:</label>
+          <select id="tipo-relato" required>
+            <option value="">Selecione uma opção...</option>
+            <option value="Já passei por isso">Já passei por isso</option>
+            <option value="Conheço alguém que passou por isso">Conheço alguém que passou por isso</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo">
+          <label for="mensagem">Relate o que aconteceu:</label>
+          <textarea id="mensagem" rows="5" required placeholder="Escreva aqui..."></textarea>
+        </div>
+
+        <button type="submit" class="botao-link" style="border: none; width: 100%; cursor: pointer;">Enviar Relato</button>
+      </form>
+    </section>
+
+    <!-- BLOCO ONDE OS RELATOS DO BANCO VÃO APARECER PARA GERAL VER -->
+    <section class="cartao-conteudo">
+      <h2>Relatos da Comunidade</h2>
+      <div id="container-relatos">
+        <p>Carregando relatos...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Projeto Integrador.</p>
+    <p>Integrantes: Brayandy, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
+  </footer>
+
+  <!-- CONEXÃO E LÓGICA DO SUPABASE (LINKS CORRIGIDOS COM SEUS DADOS REAIS) -->
+  <script src="https://jsdelivr.net"></script>
+  <script>
+    // Seus dados reais do Supabase aplicados corretamente
+    const SUPABASE_URL = "https://uqovfsqveibhbsxflrhv.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_gy5IRfRgHh-pdkIOtJbPuw_TAZPFkbh";
+
+    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    const formulario = document.getElementById('formulario-relato');
+    const containerRelatos = document.getElementById('container-relatos');
+
+    // 1. BUSCAR E EXIBIR OS RELATOS DA TELA
+    async function carregarRelatos() {
+      const { data: relatos, error } = await supabase
+        .from('relatos')
+        .select('*')
+        .order('criado_em', { ascending: false });
+
+      if (error) {
+        console.error('Erro ao buscar dados:', error);
+        containerRelatos.innerHTML = '<p>Erro ao carregar os relatos. Certifique-se de que o RLS está desativado na tabela do Supabase.</p>';
+        return;
+      }
+
+      if (relatos.length === 0) {
+        containerRelatos.innerHTML = '<p>Nenhum relato compartilhado ainda. Seja o primeiro!</p>';
+        return;
+      }
+
+      containerRelatos.innerHTML = '';
+      relatos.forEach(relato => {
+        const dataFormatada = new Date(relato.criado_em).toLocaleDateString('pt-BR');
+
+        const cartaoRelato = document.createElement('div');
+        cartaoRelato.className = 'cartao-relato-usuario';
+        cartaoRelato.innerHTML = `
+          <div class="topo-relato">
+            <strong>${relato.nome}</strong>
+            <span class="tag-relato">${relato.tipo}</span>
+          </div>
+          <p class="texto-relato" style="font-style: italic; color: #444; margin: 10px 0;">"${relato.mensagem}"</p>
+          <span class="data-relato" style="font-size: 12px; color: #aaa; display: block; text-align: right;">Enviado em: ${dataFormatada}</span>
+        `;
+        containerRelatos.appendChild(cartaoRelato);
+      });
+    }
+
+    // 2. SALVAR UM NOVO RELATO NO BANCO
+    formulario.addEventListener('submit', async (evento) => {
+      evento.preventDefault();
+
+      const nomeUsuario = document.getElementById('nome').value || "Anônimo";
+      const tipoRelato = document.getElementById('tipo-relato').value;
+      const mensagemUsuario = document.getElementById('mensagem').value;
+
+      const { error } = await supabase
+        .from('relatos')
+        .insert([
+          { nome: nomeUsuario, tipo: tipoRelato, mensagem: mensagemUsuario }
+        ]);
+
+      if (error) {
+        console.error('Erro ao salvar:', error);
+        alert('Erro ao salvar o relato. Verifique se o RLS está desativado na tabela do Supabase.');
+      } else {
+        alert('Relato enviado e publicado com sucesso!');
+        formulario.reset();
+        carregarRelatos(); // Atualiza a lista na hora sem atualizar a página
+      }
+    });
+
+    // Carrega a lista assim que abre a página
+    carregarRelatos();
+  </script>
+</body>
+</html>

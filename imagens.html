@@ -1,87 +1,118 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INTOLERÂNCIA RELIGIOSA</title>
 
-    
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Intolerância Religiosa</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
-    
+
 <body>
 
-  <header id="cabecalho-principal">
-    <h1>Intolerância Religiosa</h1>
-    <p>Projeto para respeitar as religiões</p>
-  </header>
+    <header id="cabecalho-principal">
+        <h1>Intolerância Religiosa</h1>
+        <p>Projeto para respeitar as religiões</p>
+    </header>
 
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="problema.html">Entenda o Problema</a>
-    <a href="impactos.html">Impactos</a>
-    <a href="combate.html">Como Combater</a>
-    <a href="imagens.html">Imagens</a>
-  </nav>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="problema.html">Entenda o Problema</a>
+        <a href="impactos.html">Impactos</a>
+        <a href="combate.html">Como Combater</a>
+        <a href="imagens.html">Imagens</a>
+        <a href="formulario.html">Formulário</a>
 
-  <main>
+        <div class="acessibilidade">
+            <button type="button" id="aumentar-fonte" aria-label="Aumentar letras">A+</button>
+            <button type="button" id="diminuir-fonte" aria-label="Diminuir letras">A-</button>
+        </div>
+    </nav>
 
-    <section class="cartao-conteudo">
-      <h2>Caso real com a Umbanda:</h2>
+    <main>
 
-      <a href="https://www.cnnbrasil.com.br/nacional/sudeste/rj/rj-terreiro-de-umbanda-e-alvo-de-ataque-e-roubo-biblia-e-deixada-no-local/" target="_blank">
-        <img src="casodaUmbanda.webp" 
-             alt="Um caso real de Intolerância Religiosa com um terreiro de Umbanda." 
-             class="imagem-destaque">
-      </a>
+        <!-- Caso da Umbanda -->
 
-      <p><b>Caso com a Umbanda:</b></p>
-      <p>Terreiro de Umbanda é alvo de ataque e roubo; Bíblia é deixada no local.</p>
-    </section>
+        <section class="cartao-conteudo">
 
+            <h2>Caso real com a Umbanda:</h2>
 
-    <section class="cartao-conteudo">
-      <h2>Caso real com a Quimbanda:</h2>
+            <a href="https://www.cnnbrasil.com.br/nacional/sudeste/rj/rj-terreiro-de-umbanda-e-alvo-de-ataque-e-roubo-biblia-e-deixada-no-local/" target="_blank" rel="noopener noreferrer">
 
-      <a href="https://g1.globo.com/ba/bahia/noticia/2026/04/14/homem-morre-na-bahia.ghtml" target="_blank">
-        <img src="casodaQuimbanda.avif" 
-             alt="Um caso real de Intolerância Religiosa com um terreiro de Quimbanda." 
-             class="imagem-destaque">
-      </a>
+                <img src="casodaUmbanda.webp"
+                     alt="Caso de intolerância religiosa contra um terreiro de Umbanda."
+                     class="imagem-destaque">
 
-      <p><b>Caso com a Quimbanda:</b></p>
-      <p>Pai de santo morto a facadas dentro de terreiro da Bahia.</p>
-    </section>
+            </a>
+
+            <p><b>Caso com a Umbanda:</b></p>
+
+            <p>
+                Terreiro de Umbanda é alvo de ataque e roubo; Bíblia é deixada no local.
+            </p>
+
+        </section>
 
 
-    <section class="cartao-conteudo">
-      <h2>Santúario dos satanistas</h2>
+        <!-- Caso da Quimbanda -->
 
-        <img src="casodoSantuario.jpg" 
-             alt="Santuário dos satanistas" 
-             class="imagem-destaque">
-      </a>
+        <section class="cartao-conteudo">
 
-      <p><b>Caso com o Satanismo:</b></p>
-      <p>
-        Não foram encontradas matérias que falassem especificamente
-        sobre preconceito com o Satanismo. Porém, foram encontradas
-        fotos de acontecimentos relacionados ao tema.
-      </p>
-    </section>
+            <h2>Caso real com a Quimbanda:</h2>
 
-  </main>
+            <a href="https://g1.globo.com/ba/bahia/noticia/2026/04/14/homem-morre-na-bahia.ghtml" target="_blank" rel="noopener noreferrer">
 
-  
-  <footer>
-    <p>Projeto Integrador.</p>
-    <p>Integrantes: Brayandy, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
-  </footer>
+                <img src="casodaQuimbanda.avif"
+                     alt="Caso de violência relacionado a um terreiro de Quimbanda."
+                     class="imagem-destaque">
+
+            </a>
+
+            <p><b>Caso com a Quimbanda:</b></p>
+
+            <p>
+                Pai de santo morto a facadas dentro de terreiro da Bahia.
+            </p>
+
+        </section>
+
+
+        <!-- Caso do Satanismo -->
+
+        <section class="cartao-conteudo">
+
+            <h2>Santuário dos Satanistas</h2>
+
+            <img src="casodoSantuario.jpg"
+                 alt="Imagem de um santuário relacionado ao Satanismo."
+                 class="imagem-destaque">
+
+            <p><b>Caso com o Satanismo:</b></p>
+
+            <p>
+                Não foram encontradas matérias que falassem especificamente
+                sobre preconceito com o Satanismo. Porém, foram encontradas
+                fotos de acontecimentos relacionados ao tema.
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Projeto Integrador.</p>
+        <p>Integrantes: Brayandy, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
