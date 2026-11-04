@@ -529,7 +529,7 @@ footer p:last-child {
     }
 }
 
-/*Menos animações*/
+/* Menos animações*/
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
