@@ -1,10 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Formulário - Intolerância Religiosa</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,7 +32,11 @@
     </nav>
 
     <main>
+
+        <!-- Formulario -->
+
         <section class="cartao-conteudo">
+
             <h2>Compartilhe seu relato</h2>
 
             <p>
@@ -44,6 +50,7 @@
 
                 <div class="campo-grupo">
                     <label for="nome">Nome (opcional)</label>
+
                     <input
                         type="text"
                         id="nome"
@@ -54,6 +61,7 @@
 
                 <div class="campo-grupo">
                     <label for="tipo-relato">Tipo de relato</label>
+
                     <select id="tipo-relato" name="tipo" required>
                         <option value="">Selecione uma opção</option>
                         <option value="Experiência pessoal">Experiência pessoal</option>
@@ -65,6 +73,7 @@
 
                 <div class="campo-grupo">
                     <label for="mensagem">Seu relato</label>
+
                     <textarea
                         id="mensagem"
                         name="mensagem"
@@ -78,32 +87,65 @@
                     Enviar relato
                 </button>
 
-                <p id="mensagem-status" role="status"></p>
-
             </form>
+
         </section>
 
+        <!-- Relatos -->
+
         <section class="cartao-conteudo">
+
             <h2>Relatos da comunidade</h2>
-            <p>Confira os relatos compartilhados pelos visitantes.</p>
+
+            <p>
+                Confira os relatos compartilhados pelos visitantes.
+            </p>
 
             <div id="lista-relatos">
                 <p>Carregando relatos...</p>
             </div>
+
         </section>
+
     </main>
 
-  <footer>
-    <p>Projeto Integrador.</p>
-    <p>Integrantes: Brayandy, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
-  </footer>
+    <!-- Notificacao -->
 
-    <!-- Biblioteca do Supabase -->
+    <div id="notificacao" class="notificacao" role="status" aria-live="polite">
+
+        <span class="notificacao-icone" id="notificacao-icone">✓</span>
+
+        <div class="notificacao-conteudo">
+            <strong id="notificacao-titulo"></strong>
+            <p id="notificacao-texto"></p>
+        </div>
+
+        <button
+            type="button"
+            class="notificacao-fechar"
+            id="fechar-notificacao"
+            aria-label="Fechar notificação"
+        >
+            ×
+        </button>
+
+    </div>
+
+    <footer>
+        <p>Projeto Integrador.</p>
+        <p>Integrantes: Brayandy, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
+    </footer>
+
+    <!-- Supabase -->
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Conexão e funcionamento do formulário -->
+    <!-- Formulario -->
+
     <script>
+
         const SUPABASE_URL = "https://uqovfsqveibhbsxflrhv.supabase.co";
+
         const SUPABASE_KEY = "sb_publishable_gy5IRfRgHh-pdkIOtJbPuw_TAZPFkbh";
 
         const clienteSupabase = window.supabase.createClient(
@@ -112,11 +154,57 @@
         );
 
         const formulario = document.getElementById("form-relato");
-        const listaRelatos = document.getElementById("lista-relatos");
-        const mensagemStatus = document.getElementById("mensagem-status");
 
-        // Carregar relatos
+        const listaRelatos = document.getElementById("lista-relatos");
+
+        const notificacao = document.getElementById("notificacao");
+
+        const notificacaoTitulo = document.getElementById("notificacao-titulo");
+
+        const notificacaoTexto = document.getElementById("notificacao-texto");
+
+        const notificacaoIcone = document.getElementById("notificacao-icone");
+
+        const fecharNotificacao = document.getElementById("fechar-notificacao");
+
+        let tempoNotificacao;
+
+
+        // Notificacao
+
+        function mostrarNotificacao(titulo, texto, tipo = "sucesso") {
+
+            clearTimeout(tempoNotificacao);
+
+            notificacaoTitulo.textContent = titulo;
+
+            notificacaoTexto.textContent = texto;
+
+            notificacaoIcone.textContent = tipo === "sucesso" ? "✓" : "!";
+
+            notificacao.className = "notificacao ativa " + tipo;
+
+            tempoNotificacao = setTimeout(() => {
+                notificacao.classList.remove("ativa");
+            }, 4500);
+        }
+
+
+        // Fechar notificacao
+
+        fecharNotificacao.addEventListener("click", () => {
+
+            clearTimeout(tempoNotificacao);
+
+            notificacao.classList.remove("ativa");
+
+        });
+
+
+        // Buscar relatos
+
         async function carregarRelatos() {
+
             listaRelatos.textContent = "Carregando relatos...";
 
             const { data, error } = await clienteSupabase
@@ -125,80 +213,148 @@
                 .order("criado_em", { ascending: false });
 
             if (error) {
+
                 console.error("Erro ao carregar relatos:", error);
+
                 listaRelatos.textContent = "Não foi possível carregar os relatos.";
+
                 return;
             }
 
             listaRelatos.replaceChildren();
 
             if (!data || data.length === 0) {
+
                 listaRelatos.textContent = "Ainda não existem relatos publicados.";
+
                 return;
             }
 
             data.forEach((relato) => {
+
                 const cartao = document.createElement("article");
+
                 cartao.className = "cartao-relato-usuario";
 
                 const nome = document.createElement("h3");
+
                 nome.textContent = relato.nome || "Anônimo";
 
                 const tipo = document.createElement("p");
+
                 tipo.textContent = "Tipo: " + (relato.tipo || "Não informado");
 
                 const mensagem = document.createElement("p");
+
                 mensagem.textContent = relato.mensagem || "";
 
                 cartao.append(nome, tipo, mensagem);
+
                 listaRelatos.appendChild(cartao);
+
             });
+
         }
 
+
         // Enviar relato
+
         formulario.addEventListener("submit", async function(event) {
+
             event.preventDefault();
 
             const nome = document.getElementById("nome").value.trim();
+
             const tipo = document.getElementById("tipo-relato").value;
+
             const mensagem = document.getElementById("mensagem").value.trim();
 
+
             if (!tipo || !mensagem) {
-                mensagemStatus.textContent = "Preencha os campos obrigatórios.";
+
+                mostrarNotificacao(
+                    "Atenção!",
+                    "Preencha todos os campos obrigatórios.",
+                    "erro"
+                );
+
                 return;
             }
 
+
             const botao = formulario.querySelector('button[type="submit"]');
+
             botao.disabled = true;
+
             botao.textContent = "Enviando...";
 
-            const { error } = await clienteSupabase
-                .from("relatos")
-                .insert([
-                    {
-                        nome: nome || "Anônimo",
-                        tipo: tipo,
-                        mensagem: mensagem
-                    }
-                ]);
 
-            if (error) {
-                console.error("Erro ao enviar relato:", error);
-                mensagemStatus.textContent = "Não foi possível enviar. Tente novamente.";
-            } else {
-                mensagemStatus.textContent = "Relato enviado com sucesso!";
-                formulario.reset();
-                await carregarRelatos();
+            try {
+
+                const { error } = await clienteSupabase
+                    .from("relatos")
+                    .insert([
+                        {
+                            nome: nome || "Anônimo",
+                            tipo: tipo,
+                            mensagem: mensagem
+                        }
+                    ]);
+
+
+                if (error) {
+
+                    console.error("Erro ao enviar relato:", error);
+
+                    mostrarNotificacao(
+                        "Erro ao enviar",
+                        "Não foi possível enviar seu relato. Tente novamente.",
+                        "erro"
+                    );
+
+                } else {
+
+                    mostrarNotificacao(
+                        "Relato enviado!",
+                        "Sua participação é importante para combater a intolerância religiosa.",
+                        "sucesso"
+                    );
+
+                    formulario.reset();
+
+                    await carregarRelatos();
+
+                }
+
+            } catch (erro) {
+
+                console.error("Erro inesperado:", erro);
+
+                mostrarNotificacao(
+                    "Erro inesperado",
+                    "Ocorreu um problema. Tente novamente.",
+                    "erro"
+                );
+
+            } finally {
+
+                botao.disabled = false;
+
+                botao.textContent = "Enviar relato";
+
             }
 
-            botao.disabled = false;
-            botao.textContent = "Enviar relato";
         });
 
+
+        // Iniciar relatos
+
         carregarRelatos();
+
     </script>
 
-    <!-- Acessibilidade: carregada uma única vez -->
+    <!-- Acessibilidade -->
+
     <script src="./script.js"></script>
 
 </body>

@@ -1,6 +1,5 @@
-/* Estilo geral */
-
 /* Global */
+
 * {
     box-sizing: border-box;
 }
@@ -22,9 +21,7 @@ body {
     line-height: 1.7;
 }
 
-/* =========================================================
-   CABEÇALHO PRINCIPAL
-========================================================= */
+/* Cabecalho */
 
 #cabecalho-principal {
     position: relative;
@@ -52,7 +49,7 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Navegação */
+/* Menu */
 
 nav {
     position: sticky;
@@ -143,7 +140,7 @@ nav a[aria-current="page"]::after {
     color: #fff;
 }
 
-/* Conteúdo */
+/* Conteudo */
 
 main {
     flex: 1;
@@ -208,6 +205,7 @@ main {
 }
 
 /* Imagens */
+
 .imagem-destaque {
     display: block;
     width: 100%;
@@ -218,7 +216,7 @@ main {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* Rodapé */
+/* Rodape */
 
 footer {
     position: relative;
@@ -253,7 +251,7 @@ footer p:last-child {
     font-size: 10px;
 }
 
-/* Formulário */
+/* Formulario */
 
 .campo-grupo {
     display: flex;
@@ -290,7 +288,8 @@ footer p:last-child {
     box-shadow: 0 0 5px rgba(163, 38, 61, 0.15);
 }
 
-/* Botões de link */
+/* Botoes */
+
 .botao-link {
     display: inline-block;
     padding: 0.6rem 1rem;
@@ -380,7 +379,9 @@ footer p:last-child {
 /* Celulares */
 
 @media (max-width: 600px) {
-    /* Cabeçalho */
+
+    /* Cabecalho */
+
     #cabecalho-principal {
         padding: 19px 14px 16px;
     }
@@ -398,7 +399,8 @@ footer p:last-child {
         letter-spacing: 0.25px;
     }
 
-    /* Menu mobile */
+    /* Menu */
+
     nav {
         position: relative;
         display: flex;
@@ -422,7 +424,8 @@ footer p:last-child {
         bottom: 2px;
     }
 
-    /* Acessibilidade mobile */
+    /* Acessibilidade */
+
     .acessibilidade {
         position: static;
         display: flex;
@@ -443,7 +446,8 @@ footer p:last-child {
         font-size: 11px;
     }
 
-    /* Conteúdo */
+    /* Conteudo */
+
     main {
         margin: 28px auto;
         padding: 0 13px;
@@ -470,7 +474,8 @@ footer p:last-child {
         border-radius: 8px;
     }
 
-    /* Rodapé mobile */
+    /* Rodape */
+
     footer {
         padding: 17px 12px 13px;
     }
@@ -492,13 +497,15 @@ footer p:last-child {
         font-size: 9px;
     }
 
-    /* Remove efeito no toque */
+    /* Toque */
+
     .cartao-conteudo:hover {
         transform: none;
     }
 }
 
 /* Telas pequenas */
+
 @media (max-width: 380px) {
     #cabecalho-principal h1 {
         font-size: 25px;
@@ -529,7 +536,8 @@ footer p:last-child {
     }
 }
 
-/* Menos animações*/
+/* Movimento */
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -537,5 +545,153 @@ footer p:last-child {
         scroll-behavior: auto !important;
         transition: none !important;
         animation: none !important;
+    }
+}
+
+/* Notificacao */
+
+.notificacao {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 350px;
+    max-width: calc(100% - 40px);
+    padding: 18px;
+
+    background: #ffffff;
+    border-left: 4px solid #6b9874;
+    border-radius: 10px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+
+    transition: all 0.35s ease;
+}
+
+.notificacao.ativa {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.notificacao-icone {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e7f1e9;
+    color: #477b52;
+
+    border-radius: 50%;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.notificacao strong {
+    display: block;
+    color: #272727;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.notificacao p {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .notificacao {
+        top: 15px;
+        right: 15px;
+        width: calc(100% - 30px);
+    }
+}
+
+/* Notificacao */
+
+.notificacao {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    width: 350px;
+    max-width: calc(100% - 40px);
+    padding: 18px;
+
+    background: #ffffff;
+    border-left: 4px solid #6b9874;
+    border-radius: 10px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(30px);
+
+    transition: all 0.35s ease;
+}
+
+.notificacao.ativa {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.notificacao-icone {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #e7f1e9;
+    color: #477b52;
+
+    border-radius: 50%;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.notificacao strong {
+    display: block;
+    color: #272727;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.notificacao p {
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 480px) {
+    .notificacao {
+        top: 15px;
+        right: 15px;
+        width: calc(100% - 30px);
     }
 }
