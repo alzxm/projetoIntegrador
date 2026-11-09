@@ -1,81 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>INTOLERÂNCIA RELIGIOSA</title>
+    <meta name="description" content="Projeto educativo sobre intolerância religiosa e respeito à diversidade de crenças.">
+    <title>Intolerância Religiosa | Projeto</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&family=Pinyon+Script&display=swap" rel="stylesheet">
-
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-
-    <!-- JavaScript -->
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Cabecalho -->
-
     <header id="cabecalho-principal">
-        <h1>Intolerância Religiosa</h1>
-        <p>Projeto para respeitar as religiões</p>
+        <a class="marca" href="index.html">
+            <span class="marca-simbolo">✦</span>
+            <span>
+                <strong>Intolerância Religiosa</strong>
+                <small>Projeto para respeitar as religiões</small>
+            </span>
+        </a>
     </header>
 
-    <!-- Menu -->
-
-    <nav>
-        <a href="index.html">Início</a>
+    <nav aria-label="Navegação principal">
+        <a href="index.html" aria-current="page">Início</a>
         <a href="problema.html">Entenda o Problema</a>
         <a href="impactos.html">Impactos</a>
         <a href="combate.html">Como Combater</a>
         <a href="imagens.html">Imagens</a>
         <a href="formulario.html">Formulário</a>
 
-        <!-- Acessibilidade -->
-
         <div class="acessibilidade">
-            <button type="button" id="aumentar-fonte" aria-label="Aumentar letras">A+</button>
-            <button type="button" id="diminuir-fonte" aria-label="Diminuir letras">A-</button>
+            <button type="button" id="aumentar-fonte">A+</button>
+            <button type="button" id="diminuir-fonte">A-</button>
         </div>
     </nav>
 
-    <!-- Conteudo -->
+    <main class="inicio">
 
-    <main>
+        <section class="apresentacao">
 
-        <section class="cartao-conteudo">
-            <h2>Bem-vindo ao Nosso Projeto</h2>
+            <div class="apresentacao-texto">
+                <span class="sobretitulo">RESPEITO À DIVERSIDADE</span>
 
+                <h1>Intolerância <span>Religiosa</span></h1>
+
+                <p class="frase-destaque">
+                    Respeitar a fé do outro também é uma forma de construir um mundo melhor.
+                </p>
+
+                <p class="texto-intro">
+                    A intolerância religiosa acontece quando alguém é desrespeitado,
+                    discriminado ou sofre violência por causa de sua crença.
+                    Conhecer o tema é um passo importante para combater o preconceito.
+                </p>
+
+                <a class="botao-principal" href="problema.html">
+                    Conheça o problema <span>→</span>
+                </a>
+            </div>
+
+            <div class="apresentacao-visual">
+                <div class="simbolos-religiosos" aria-hidden="true">
+                    <span>✝</span>
+                    <span>☪</span>
+                    <span>ॐ</span>
+                    <span>✡</span>
+                    <span>☸</span>
+                </div>
+
+                <p>
+                    Respeito não exige que todos acreditem igual.
+                </p>
+
+                <div class="linha-decorativa"></div>
+            </div>
+
+        </section>
+
+        <section class="atalhos">
+
+            <a class="atalho" href="problema.html">
+                <span class="atalho-numero">01</span>
+                <span class="atalho-conteudo">
+                    <strong>Entenda o problema</strong>
+                    <small>Conheça o que é a intolerância religiosa e por que acontece.</small>
+                </span>
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="impactos.html">
+                <span class="atalho-numero">02</span>
+                <span class="atalho-conteudo">
+                    <strong>Impactos</strong>
+                    <small>Veja como o preconceito afeta pessoas e comunidades.</small>
+                </span>
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="combate.html">
+                <span class="atalho-numero">03</span>
+                <span class="atalho-conteudo">
+                    <strong>Como combater</strong>
+                    <small>Descubra atitudes que ajudam a promover o respeito.</small>
+                </span>
+                <span class="atalho-seta">↗</span>
+            </a>
+
+        </section>
+
+        <section class="mensagem-final">
             <p>
-                Escolhemos esse tema porque, no Brasil, as religiões de matriz africana,
-                como a Umbanda, e a Quimbanda, ainda enfrentam preconceito e discriminação.
-                <br>
-                A intolerância religiosa contra essas crenças é uma realidade presente no
-                cotidiano de muitas pessoas. No entanto, é fundamental levantar a voz contra
-                esse tipo de violência e promover o respeito às diferenças religiosas.
-            </p>
-
-            <p>
-                Navegue pelas páginas para entender mais sobre os problemas,
-                as causas e como combater.
+                “A liberdade religiosa começa quando o respeito se torna uma escolha de todos.”
             </p>
         </section>
 
     </main>
 
-    <!-- Rodape -->
-
     <footer>
-        <p>Projeto Integrador.</p>
+        <p>Projeto Integrador</p>
         <p>Integrantes: Alejandra, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
     </footer>
 
