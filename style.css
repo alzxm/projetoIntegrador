@@ -689,3 +689,9 @@ footer p:first-child {
         transition: none !important;
     }
 }
+
+/* REMOVER DETALHE DOURADO DA PÁGINA INICIAL */
+
+.linha-decorativa {
+    display: none !important;
+}
