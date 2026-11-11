@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const aumentar = document.getElementById("aumentar-fonte");
