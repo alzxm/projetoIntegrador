@@ -707,3 +707,26 @@ nav a:hover,
 nav a:focus-visible {
     border-bottom-color: var(--vinho);
 }
+
+/* Aviso de publicação dos relatos */
+
+.aviso-publicacao {
+    background: var(--creme-escuro);
+    border-left: 4px solid var(--vinho);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 25px 0;
+}
+
+.aviso-publicacao strong {
+    display: block;
+    color: var(--vinho-escuro);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.aviso-publicacao p {
+    color: var(--texto-suave);
+    line-height: 1.7;
+    margin: 0;
+}
