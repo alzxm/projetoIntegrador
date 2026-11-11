@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Onde denunciar | Intolerância Religiosa</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <style>
+        .denuncia-intro {
+            padding: 35px;
+            margin-bottom: 25px;
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            background: var(--branco);
+        }
+
+        .denuncia-intro h1 {
+            margin: 10px 0;
+            color: var(--vinho);
+            font-family: 'Bodoni Moda', serif;
+            font-size: clamp(35px, 5vw, 52px);
+            font-weight: 500;
+        }
+
+        .denuncia-intro p {
+            color: var(--texto-suave);
+            font-size: 14px;
+        }
+
+        .denuncia-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding: 28px;
+            border: 1px solid var(--borda);
+            border-left: 4px solid var(--vinho);
+            border-radius: 9px;
+            background: var(--branco);
+        }
+
+        .denuncia-card .numero {
+            color: var(--dourado);
+            font-family: 'Bodoni Moda', serif;
+            font-size: 25px;
+        }
+
+        .denuncia-card h2 {
+            margin: 0;
+            color: var(--vinho);
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+        }
+
+        .denuncia-card p {
+            margin: 0 0 8px;
+            color: var(--texto-suave);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .botao-denuncia {
+            display: inline-block;
+            padding: 11px 19px;
+            border-radius: 5px;
+            background: var(--vinho);
+            color: white !important;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .botao-denuncia:hover {
+            background: var(--vinho-escuro);
+            transform: translateY(-2px);
+        }
+
+        .aviso-final {
+            padding: 28px;
+            margin-top: 25px;
+            border: 1px solid var(--borda);
+            border-radius: 9px;
+            background: var(--creme-escuro);
+            text-align: center;
+        }
+
+        .aviso-final h2 {
+            color: var(--vinho);
+            font-family: 'Playfair Display', serif;
+            font-size: 23px;
+        }
+
+        .aviso-final p {
+            color: var(--texto-suave);
+            font-size: 13px;
+        }
+
+        @media(max-width: 600px) {
+            .denuncia-intro,
+            .denuncia-card {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="cabecalho-principal">
+    <a class="marca" href="index.html">
+        <span class="marca-simbolo">✦</span>
+        <span>
+            <strong>Intolerância Religiosa</strong>
+            <small>Projeto para respeitar as religiões</small>
+        </span>
+    </a>
+</header>
+
+<nav aria-label="Navegação principal">
+    <a href="index.html">Início</a>
+    <a href="problema.html">Entenda o Problema</a>
+    <a href="impactos.html">Impactos</a>
+    <a href="combate.html">Como Combater</a>
+    <a href="imagens.html">Imagens</a>
+    <a href="formulario.html">Formulário</a>
+    <a href="denuncie.html" aria-current="page">Onde denunciar</a>
+
+    <div class="acessibilidade">
+        <button type="button" id="aumentar-fonte">A+</button>
+        <button type="button" id="diminuir-fonte">A-</button>
+    </div>
+</nav>
+
+<main>
+
+    <section class="denuncia-intro">
+        <span class="sobretitulo">INFORMAÇÃO E PROTEÇÃO</span>
+
+        <h1>Onde denunciar?</h1>
+
+        <p>
+            A intolerância religiosa é uma forma de discriminação
+            e não deve ser ignorada. Se você sofreu ou presenciou
+            uma situação assim, existem canais oficiais que podem
+            receber denúncias e oferecer orientação.
+        </p>
+    </section>
+
+    <section class="denuncia-card">
+        <span class="numero">01</span>
+
+        <h2>Disque 100</h2>
+
+        <p>
+            Canal gratuito do Governo Federal que recebe denúncias
+            de violações dos direitos humanos, incluindo casos de
+            intolerância religiosa. O atendimento funciona 24 horas
+            por dia, todos os dias.
+        </p>
+
+        <p>As denúncias podem ser realizadas anonimamente.</p>
+
+        <a class="botao-denuncia" href="tel:100">
+            Ligar para 100 →
+        </a>
+
+        <a href="https://www.gov.br/pt-br/servicos/denunciar-violacao-de-direitos-humanos"
+           target="_blank" rel="noopener noreferrer">
+            Mais informações
+        </a>
+    </section>
+
+    <section class="denuncia-card">
+        <span class="numero">02</span>
+
+        <h2>WhatsApp do Disque 100</h2>
+
+        <p>
+            Também é possível entrar em contato com o serviço
+            pelo WhatsApp oficial.
+        </p>
+
+        <a class="botao-denuncia"
+           href="https://wa.me/5561996110100"
+           target="_blank" rel="noopener noreferrer">
+            Acessar WhatsApp →
+        </a>
+    </section>
+
+    <section class="denuncia-card">
+        <span class="numero">03</span>
+
+        <h2>Denúncia pela internet</h2>
+
+        <p>
+            A Ouvidoria Nacional de Direitos Humanos disponibiliza
+            informações e canais de atendimento pela internet.
+        </p>
+
+        <a class="botao-denuncia"
+           href="https://www.gov.br/mdh/pt-br/ondh"
+           target="_blank" rel="noopener noreferrer">
+            Acessar canal oficial →
+        </a>
+    </section>
+
+    <section class="denuncia-card">
+        <span class="numero">04</span>
+
+        <h2>Emergência — Polícia Militar</h2>
+
+        <p>
+            Se alguém estiver em perigo imediato ou houver uma
+            situação de violência acontecendo naquele momento,
+            procure um local seguro e acione a Polícia Militar.
+        </p>
+
+        <a class="botao-denuncia" href="tel:190">
+            Ligar para 190 →
+        </a>
+    </section>
+
+    <section class="aviso-final">
+        <h2>O respeito também é um direito.</h2>
+
+        <p>
+            Nenhuma pessoa deve sofrer discriminação por causa
+            de sua religião ou crença. Conhecer os canais de
+            denúncia é uma forma de ajudar a combater o preconceito.
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    <p>Projeto Integrador</p>
+    <p>Integrantes: Alejandra, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
+</footer>
+
+</body>
+</html>
