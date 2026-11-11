@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
     const aumentar = document.getElementById("aumentar-fonte");
@@ -7,18 +8,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let escala = parseFloat(localStorage.getItem(chave)) || 1;
 
-    const textos = document.querySelectorAll(
-        "h1, h2, h3, h4, p, a, li, span, label, small, strong, button"
-    );
-
-    textos.forEach(function (elemento) {
-        elemento.dataset.tamanhoOriginal =
-            parseFloat(getComputedStyle(elemento).fontSize);
-    });
-
     function atualizarFonte() {
 
-        textos.forEach(function (elemento) {
+        document.documentElement.style.setProperty(
+            "--escala-fonte",
+            escala
+        );
+
+        document.querySelectorAll(
+            "h1, h2, h3, h4, p, a, li, span, label, small, strong, button"
+        ).forEach(function (elemento) {
+
+            if (!elemento.dataset.tamanhoOriginal) {
+                elemento.dataset.tamanhoOriginal =
+                    parseFloat(getComputedStyle(elemento).fontSize);
+            }
 
             const tamanhoOriginal =
                 parseFloat(elemento.dataset.tamanhoOriginal);
@@ -32,27 +36,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (aumentar) {
-
         aumentar.addEventListener("click", function () {
-
             escala = Math.min(1.5, +(escala + 0.1).toFixed(2));
-
             atualizarFonte();
-
         });
-
     }
 
     if (diminuir) {
-
         diminuir.addEventListener("click", function () {
-
             escala = Math.max(0.7, +(escala - 0.1).toFixed(2));
-
             atualizarFonte();
-
         });
-
     }
 
     atualizarFonte();
