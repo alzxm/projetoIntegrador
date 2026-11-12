@@ -262,3 +262,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+
+/* ANIMAÇÃO AO CLICAR NOS BOTÕES */
+
+document.addEventListener("click", function(event) {
+
+    const botao = event.target.closest(
+        "#aumentar-fonte, #diminuir-fonte, .botao-tema"
+    );
+
+    if (!botao) return;
+
+    botao.classList.remove("animacao-clique");
+
+    void botao.offsetWidth;
+
+    botao.classList.add("animacao-clique");
+
+});
+
+document.addEventListener("animationend", function(event) {
+
+    if (event.animationName === "efeito-clique") {
+        event.target.classList.remove("animacao-clique");
+    }
+
+});
+
