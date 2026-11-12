@@ -1,34 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compartilhe experiências e opiniões sobre intolerância religiosa e respeito à diversidade de crenças.">
 
     <title>Formulário - Intolerância Religiosa</title>
 
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript de acessibilidade e tema -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <header id="cabecalho-principal">
-    <a class="marca" href="index.html" aria-label="Página inicial">
-        <span class="marca-simbolo">✦</span>
-        <span>
-            <strong>Intolerância Religiosa</strong>
-            <small>Projeto para respeitar as religiões</small>
-        </span>
-    </a>
-</header>
+    <!-- Cabeçalho -->
 
-    <nav>
+    <header id="cabecalho-principal">
+        <a class="marca" href="index.html" aria-label="Página inicial">
+            <span class="marca-simbolo">✦</span>
+            <span>
+                <strong>Intolerância Religiosa</strong>
+                <small>Projeto para respeitar as religiões</small>
+            </span>
+        </a>
+    </header>
+
+    <!-- Navegação -->
+
+    <nav aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a href="problema.html">Entenda o Problema</a>
         <a href="impactos.html">Impactos</a>
         <a href="combate.html">Como Combater</a>
         <a href="imagens.html">Imagens</a>
-        <a href="formulario.html">Formulário</a>
+        <a href="formulario.html" aria-current="page">Formulário</a>
         <a href="denuncie.html">Onde denunciar</a>
 
         <div class="acessibilidade">
@@ -37,35 +52,38 @@
         </div>
     </nav>
 
+    <!-- Conteúdo principal -->
+
     <main>
 
-        <!-- Formulario -->
+        <!-- Formulário -->
 
         <section class="cartao-conteudo">
 
             <h2>Compartilhe seu relato</h2>
 
             <p>
-    Este espaço foi criado para que você possa compartilhar
-    experiências, opiniões e situações relacionadas à
-    intolerância religiosa. Sua participação é importante
-    para promover o respeito e a convivência.
-</p>
+                Este espaço foi criado para que você possa compartilhar
+                experiências, opiniões e situações relacionadas à
+                intolerância religiosa. Sua participação é importante
+                para promover o respeito e a convivência.
+            </p>
 
-<div class="aviso-publicacao">
-    <strong>Atenção: os relatos são públicos!</strong>
-    <p>
-        Os relatos enviados serão exibidos na parte inferior
-        desta página e poderão ser visualizados por qualquer
-        pessoa que acessar o site. O nome informado, o tipo
-        de relato e a mensagem também ficarão visíveis.
-        Por isso, evite compartilhar dados pessoais,
-        como endereço, telefone ou informações que possam
-        identificar você ou outras pessoas.
-    </p>
-</div>
+            <div class="aviso-publicacao">
+                <strong>Atenção: os relatos são públicos!</strong>
 
-<form id="form-relato">
+                <p>
+                    Os relatos enviados serão exibidos na parte inferior
+                    desta página e poderão ser visualizados por qualquer
+                    pessoa que acessar o site. O nome informado, o tipo
+                    de relato e a mensagem também ficarão visíveis.
+                    Por isso, evite compartilhar dados pessoais,
+                    como endereço, telefone ou informações que possam
+                    identificar você ou outras pessoas.
+                </p>
+            </div>
+
+            <form id="form-relato">
 
                 <div class="campo-grupo">
                     <label for="nome">Nome (opcional)</label>
@@ -110,7 +128,7 @@
 
         </section>
 
-        <!-- Relatos -->
+        <!-- Relatos publicados -->
 
         <section class="cartao-conteudo">
 
@@ -128,7 +146,7 @@
 
     </main>
 
-    <!-- Notificacao -->
+    <!-- Notificação -->
 
     <div id="notificacao" class="notificacao" role="status" aria-live="polite">
 
@@ -150,6 +168,8 @@
 
     </div>
 
+    <!-- Rodapé -->
+
     <footer>
         <p>Projeto Integrador.</p>
         <p>Integrantes: Alejandra, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
@@ -158,8 +178,6 @@
     <!-- Supabase -->
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <!-- Formulario -->
 
     <script>
 
@@ -189,7 +207,7 @@
         let tempoNotificacao;
 
 
-        // Notificacao
+        // Notificação
 
         function mostrarNotificacao(titulo, texto, tipo = "sucesso") {
 
@@ -209,7 +227,7 @@
         }
 
 
-        // Fechar notificacao
+        // Fechar notificação
 
         fecharNotificacao.addEventListener("click", () => {
 
@@ -371,10 +389,6 @@
         carregarRelatos();
 
     </script>
-
-    <!-- Acessibilidade -->
-
-    <script src="./script.js"></script>
 
 </body>
 </html>
