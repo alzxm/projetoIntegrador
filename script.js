@@ -1,7 +1,9 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ACESSIBILIDADE: AUMENTAR E DIMINUIR FONTE
+    // =================================
+    // ACESSIBILIDADE: TAMANHO DA FONTE
+    // =================================
 
     const aumentar = document.getElementById("aumentar-fonte");
     const diminuir = document.getElementById("diminuir-fonte");
@@ -10,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let escala = parseFloat(localStorage.getItem(chave)) || 1;
 
-    // Elementos que terão o tamanho da fonte ajustado
     const seletor = [
         "h1", "h2", "h3", "h4",
         "p", "a", "li", "span",
@@ -19,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         "select", "option"
     ].join(", ");
 
-    // Captura os tamanhos originais antes de aplicar o aumento
     function capturarTamanhos(elementos) {
 
         elementos.forEach(function (elemento) {
@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     ? parseFloat(getComputedStyle(pai).fontSize)
                     : 0;
 
-                // Evita capturar como original um tamanho
-                // que já foi aumentado por herança
                 const herdado = pai &&
                     Math.abs(tamanhoAtual - tamanhoPai) < 0.1;
 
@@ -53,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // Aplica o tamanho escolhido
     function aplicarFonte(elementos) {
 
         elementos.forEach(function (elemento) {
@@ -69,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // Atualiza toda a página
     function atualizarFonte() {
 
         const elementos = document.querySelectorAll(seletor);
@@ -80,8 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         localStorage.setItem(chave, escala);
     }
-
-    // BOTÃO A+
 
     if (aumentar) {
 
@@ -95,8 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // BOTÃO A-
-
     if (diminuir) {
 
         diminuir.addEventListener("click", function () {
@@ -109,8 +101,107 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // IDENTIFICA NOVOS ELEMENTOS ADICIONADOS À PÁGINA
-    // Isso também funciona com os relatos carregados pelo Supabase
+
+    // =================================
+    // MODO CLARO, ESCURO E AUTOMÁTICO
+    // =================================
+
+    const chaveTema = "preferenciaTema";
+
+    const temas = ["automatico", "claro", "escuro"];
+
+    let tema = localStorage.getItem(chaveTema) || "automatico";
+
+    if (!temas.includes(tema)) {
+        tema = "automatico";
+    }
+
+    const botaoTema = document.createElement("button");
+
+    botaoTema.type = "button";
+    botaoTema.className = "botao-tema";
+    botaoTema.setAttribute("aria-label", "Alterar tema");
+
+    const areaAcessibilidade = document.querySelector(".acessibilidade");
+
+    if (areaAcessibilidade) {
+        areaAcessibilidade.appendChild(botaoTema);
+    }
+
+    const preferenciaSistema = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+    );
+
+    function aplicarTema() {
+
+        let temaAplicado = tema;
+
+        if (tema === "automatico") {
+            temaAplicado = preferenciaSistema.matches
+                ? "escuro"
+                : "claro";
+        }
+
+        document.documentElement.setAttribute(
+            "data-tema",
+            temaAplicado
+        );
+
+        if (tema === "automatico") {
+            botaoTema.textContent = "Auto";
+            botaoTema.setAttribute(
+                "aria-label",
+                "Tema automático. Clique para alterar."
+            );
+            botaoTema.title = "Tema automático";
+        }
+
+        if (tema === "claro") {
+            botaoTema.textContent = "☀";
+            botaoTema.setAttribute(
+                "aria-label",
+                "Tema claro. Clique para alterar."
+            );
+            botaoTema.title = "Tema claro";
+        }
+
+        if (tema === "escuro") {
+            botaoTema.textContent = "☾";
+            botaoTema.setAttribute(
+                "aria-label",
+                "Tema escuro. Clique para alterar."
+            );
+            botaoTema.title = "Tema escuro";
+        }
+
+    }
+
+    botaoTema.addEventListener("click", function () {
+
+        const indiceAtual = temas.indexOf(tema);
+
+        tema = temas[(indiceAtual + 1) % temas.length];
+
+        localStorage.setItem(chaveTema, tema);
+
+        aplicarTema();
+
+    });
+
+    preferenciaSistema.addEventListener("change", function () {
+
+        if (tema === "automatico") {
+            aplicarTema();
+        }
+
+    });
+
+    aplicarTema();
+
+
+    // =================================
+    // ELEMENTOS ADICIONADOS DINAMICAMENTE
+    // =================================
 
     const observador = new MutationObserver(function (alteracoes) {
 
@@ -145,12 +236,12 @@ document.addEventListener("DOMContentLoaded", function () {
         subtree: true
     });
 
-    // APLICA A CONFIGURAÇÃO SALVA AO ABRIR A PÁGINA
-
     atualizarFonte();
 
 
-    // IDENTIFICA AUTOMATICAMENTE A ABA ATUAL
+    // =================================
+    // IDENTIFICAR ABA ATUAL
+    // =================================
 
     const links = document.querySelectorAll("nav a");
 
@@ -165,9 +256,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .pop();
 
         if (destino === paginaAtual) {
-
             link.classList.add("aba-atual");
-
         }
 
     });
