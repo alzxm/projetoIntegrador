@@ -51,3 +51,23 @@ document.addEventListener("DOMContentLoaded", function () {
     atualizarFonte();
 
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll("nav a");
+
+    const paginaAtual = window.location.pathname
+        .split("/")
+        .pop() || "index.html";
+
+    links.forEach(link => {
+        const destino = new URL(link.href).pathname
+            .split("/")
+            .pop();
+
+        if (destino === paginaAtual) {
+            link.classList.add("aba-atual");
+        }
+    });
+});
+
