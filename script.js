@@ -264,7 +264,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-/* ANIMAÇÃO AO CLICAR NOS BOTÕES */
+// =================================
+// ANIMAÇÃO TEMPORÁRIA DOS BOTÕES
+// =================================
 
 document.addEventListener("click", function(event) {
 
@@ -280,13 +282,8 @@ document.addEventListener("click", function(event) {
 
     botao.classList.add("animacao-clique");
 
-});
-
-document.addEventListener("animationend", function(event) {
-
-    if (event.animationName === "efeito-clique") {
-        event.target.classList.remove("animacao-clique");
-    }
+    setTimeout(function() {
+        botao.classList.remove("animacao-clique");
+    }, 500);
 
 });
-
