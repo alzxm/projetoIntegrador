@@ -1179,3 +1179,45 @@ footer,
     }
 }
 
+
+/* =================================
+   AVISO DA PÁGINA DE IMAGENS
+================================= */
+
+.aviso-imagens {
+    background-color: #f3e5e5;
+    border: 1px solid #dfcaca;
+    border-left: 12px solid var(--vinho);
+    border-radius: 22px;
+    padding: 25px 35px;
+    margin: 30px auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.aviso-imagens p {
+    color: #74434b;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.aviso-imagens strong {
+    color: var(--vinho-escuro);
+    font-weight: 700;
+}
+
+@media (max-width: 600px) {
+    .aviso-imagens {
+        padding: 20px;
+        border-left-width: 9px;
+        border-radius: 17px;
+        margin: 20px auto;
+    }
+
+    .aviso-imagens p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+}
+
+
