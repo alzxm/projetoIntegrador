@@ -339,23 +339,26 @@
                     ]);
 
 
-                if (error) {
+                               if (error) {
 
                     console.error("Erro ao enviar relato:", error);
 
-                    mostrarNotificacao(
-                        "Erro ao enviar",
-                        "Não foi possível enviar seu relato. Tente novamente.",
-                        "erro"
-                    );
+                    // Verifica se o erro veio da trava de palavras proibidas
+                    if (error.message && error.message.includes("Seu boca feia")) {
+                        mostrarNotificacao(
+                            "Seu boca feia!",
+                            "Por favor, remova as palavras ofensivas antes de enviar.",
+                            "erro"
+                        );
+                    } else {
+                        mostrarNotificacao(
+                            "Erro ao enviar",
+                            "Não foi possível enviar seu relato. Tente novamente.",
+                            "erro"
+                        );
+                    }
 
-                } else {
-
-                    mostrarNotificacao(
-                        "Relato enviado!",
-                        "Sua participação é importante para combater a intolerância religiosa.",
-                        "sucesso"
-                    );
+                }
 
                     formulario.reset();
 
