@@ -85,9 +85,9 @@ nav {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 5px clamp(12px, 2vw, 27px);
-    padding: 12px 18px;
-    background: rgba(247, 241, 235, 0.97);
+    gap: 4px clamp(8px, 1.5vw, 22px);
+    padding: 10px 14px;
+    background: rgba(247, 241, 235, 0.98);
     border-bottom: 1px solid var(--borda);
     box-shadow: 0 3px 12px rgba(50, 20, 25, 0.04);
     backdrop-filter: blur(8px);
@@ -95,47 +95,60 @@ nav {
 
 nav a {
     position: relative;
-    padding: 10px 4px;
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 8px 3px;
     color: var(--vinho-escuro);
-    font-size: 13px;
+    font-size: clamp(11px, 0.9vw, 14px);
     font-weight: 600;
     text-decoration: none;
+    border: none;
     transition: color .2s ease;
 }
 
+/* LINHA ANIMADA DO MENU */
+
 nav a::after {
+    content: "";
     position: absolute;
     right: 0;
-    bottom: 3px;
+    bottom: 2px;
     left: 0;
     height: 2px;
     background: var(--vinho);
-    content: "";
     transform: scaleX(0);
-    transition: transform .2s ease;
+    transform-origin: center;
+    transition: transform .25s ease;
 }
 
-nav a:hover,
-nav a:focus-visible,
-nav a[aria-current="page"] {
-    color: var(--vinho);
+@media (hover: hover) and (pointer: fine) {
+    nav a:hover {
+        color: var(--vinho);
+    }
+
+    nav a:hover::after {
+        transform: scaleX(1);
+    }
 }
 
-nav a:hover::after,
-nav a:focus-visible::after,
-nav a[aria-current="page"]::after {
-    transform: scaleX(1);
+nav a:focus-visible {
+    outline: 2px solid var(--vinho);
+    outline-offset: 4px;
+    border-radius: 3px;
 }
+
+/* ACESSIBILIDADE */
 
 .acessibilidade {
     display: flex;
+    flex-shrink: 0;
     gap: 5px;
     margin-left: 8px;
 }
 
 .acessibilidade button {
-    min-width: 36px;
-    padding: 5px 8px;
+    min-width: 38px;
+    padding: 6px 9px;
     border: 1px solid var(--vinho);
     border-radius: 5px;
     background: transparent;
@@ -150,7 +163,7 @@ nav a[aria-current="page"]::after {
     color: white;
 }
 
-/* PÁGINA INICIAL */
+/* CONTEÚDO PRINCIPAL */
 
 main {
     flex: 1;
@@ -161,6 +174,8 @@ main {
 .inicio {
     margin-top: 35px;
 }
+
+/* APRESENTAÇÃO DA PÁGINA INICIAL */
 
 .apresentacao {
     display: grid;
@@ -271,7 +286,7 @@ main {
     display: none !important;
 }
 
-/* CARTÕES DA PÁGINA INICIAL */
+/* ATALHOS */
 
 .atalhos {
     display: grid;
@@ -394,6 +409,8 @@ main {
     text-underline-offset: 3px;
 }
 
+/* IMAGENS */
+
 .imagem-destaque {
     display: block;
     width: 100%;
@@ -453,6 +470,37 @@ main {
     background: var(--vinho-escuro);
 }
 
+.botao-link:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+/* AVISO DE PUBLICAÇÃO */
+
+.aviso-publicacao {
+    margin: 25px 0;
+    padding: 20px;
+    border: 1px solid #d9b9bd;
+    border-left: 5px solid var(--vinho);
+    border-radius: 8px;
+    background: #f3e5e5;
+}
+
+.aviso-publicacao strong {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--vinho-escuro);
+    font-size: 1.05rem;
+}
+
+.aviso-publicacao p {
+    margin: 0;
+    color: var(--vinho);
+    line-height: 1.7;
+}
+
+/* RELATOS */
+
 #container-relatos,
 #lista-relatos {
     display: flex;
@@ -466,6 +514,17 @@ main {
     border-left: 3px solid var(--vinho);
     border-radius: 6px;
     background: var(--creme);
+}
+
+.cartao-relato-usuario h3 {
+    margin: 0 0 8px;
+    color: var(--vinho);
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.cartao-relato-usuario p {
+    margin: 5px 0;
+    overflow-wrap: anywhere;
 }
 
 .topo-relato {
@@ -489,144 +548,6 @@ main {
     font-size: 10px;
     font-weight: 700;
     text-transform: uppercase;
-}
-
-/* AVISO DO FORMULÁRIO */
-
-.aviso-publicacao {
-    background: #f3e5e5;
-    border: 1px solid #d9b9bd;
-    border-left: 5px solid var(--vinho);
-    border-radius: 8px;
-    padding: 20px;
-    margin: 25px 0;
-}
-
-.aviso-publicacao strong {
-    display: block;
-    color: var(--vinho-escuro);
-    font-size: 1.05rem;
-    margin-bottom: 10px;
-}
-
-.aviso-publicacao p {
-    color: var(--vinho);
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* AVISO DA PÁGINA DE IMAGENS */
-
-.aviso-imagens {
-    max-width: 1000px;
-    margin: 35px auto;
-    padding: 18px 22px;
-    background: #f3e5e5;
-    border: 1px solid #d9b9bd;
-    border-left: 5px solid var(--vinho);
-    border-radius: 8px;
-}
-
-.aviso-imagens p {
-    color: var(--vinho-escuro);
-    line-height: 1.7;
-    margin: 0;
-}
-
-.aviso-imagens strong {
-    color: var(--vinho);
-}
-
-/* PÁGINA ONDE DENUNCIAR */
-
-.denuncia-intro {
-    max-width: 850px;
-    margin: 50px auto 35px;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.denuncia-intro h1 {
-    color: var(--vinho-escuro);
-    font-family: Georgia, serif;
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-}
-
-.denuncia-intro p {
-    color: var(--texto-suave);
-    line-height: 1.7;
-}
-
-.denuncia-container {
-    max-width: 1000px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 22px;
-}
-
-.denuncia-card {
-    background: var(--branco);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    padding: 28px;
-    box-shadow: 0 4px 15px rgba(72, 18, 29, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.denuncia-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(72, 18, 29, 0.10);
-}
-
-.denuncia-card h2 {
-    color: var(--vinho);
-    font-family: Georgia, serif;
-    font-size: 1.4rem;
-    margin-bottom: 12px;
-}
-
-.denuncia-card p {
-    color: var(--texto-suave);
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-.denuncia-card .numero {
-    display: block;
-    color: var(--vinho-escuro);
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin: 15px 0;
-}
-
-.botao-denuncia {
-    display: inline-block;
-    background: var(--vinho);
-    color: var(--branco);
-    text-decoration: none;
-    padding: 11px 20px;
-    border-radius: 6px;
-    margin-top: 8px;
-    transition: background 0.2s ease;
-}
-
-.botao-denuncia:hover {
-    background: var(--vinho-escuro);
-}
-
-.aviso-final {
-    max-width: 900px;
-    margin: 0 auto 50px;
-    padding: 25px;
-    text-align: center;
-    background: var(--creme-escuro);
-    border-left: 4px solid var(--vinho);
-    border-radius: 8px;
-    color: var(--texto);
-    line-height: 1.7;
 }
 
 /* NOTIFICAÇÃO */
@@ -687,6 +608,15 @@ main {
     line-height: 1.5;
 }
 
+.notificacao-fechar {
+    margin-left: auto;
+    border: none;
+    background: transparent;
+    color: var(--texto-suave);
+    cursor: pointer;
+    font-size: 22px;
+}
+
 /* RODAPÉ */
 
 footer {
@@ -710,11 +640,11 @@ footer p:first-child {
     font-weight: 600;
 }
 
-/* RESPONSIVIDADE PARA TABLETS */
+/* TABLETS E TELAS MENORES */
 
 @media (max-width: 850px) {
     nav {
-        gap: 5px 13px;
+        gap: 4px 13px;
     }
 
     .apresentacao {
@@ -734,12 +664,19 @@ footer p:first-child {
     }
 }
 
-/* RESPONSIVIDADE PARA CELULARES */
+/* CELULARES */
 
 @media (max-width: 600px) {
-
     #cabecalho-principal {
         padding: 15px 18px;
+    }
+
+    .marca {
+        gap: 12px;
+    }
+
+    .marca-simbolo {
+        font-size: 30px;
     }
 
     .marca strong {
@@ -752,19 +689,19 @@ footer p:first-child {
 
     nav {
         position: relative;
-        gap: 5px 13px;
-        padding: 12px 10px;
+        gap: 3px 12px;
+        padding: 9px 8px;
     }
 
     nav a {
-        padding: 8px 3px;
-        font-size: 12px;
+        padding: 7px 2px;
+        font-size: 11px;
     }
 
     .acessibilidade {
         flex-basis: 100%;
         justify-content: center;
-        margin: 4px 0 0;
+        margin: 5px 0 0;
     }
 
     main {
@@ -811,16 +748,14 @@ footer p:first-child {
         font-size: 13px;
     }
 
-    .denuncia-container {
-        grid-template-columns: 1fr;
+    .aviso-publicacao {
+        padding: 15px;
     }
 
-    .denuncia-intro h1 {
-        font-size: 1.8rem;
-    }
-
-    .denuncia-card {
-        padding: 22px;
+    .notificacao {
+        top: 12px;
+        right: 12px;
+        max-width: calc(100% - 24px);
     }
 
     footer {
@@ -832,7 +767,7 @@ footer p:first-child {
     }
 }
 
-/* RESPEITAR PREFERÊNCIA DE MOVIMENTO */
+/* ACESSIBILIDADE DE MOVIMENTO */
 
 @media (prefers-reduced-motion: reduce) {
     *,
