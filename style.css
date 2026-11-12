@@ -1063,3 +1063,40 @@ button {
         animation: none !important;
     }
 }
+
+
+
+/* AVISO SAIBA MAIS - PÁGINA DE IMAGENS */
+
+main > p:first-of-type {
+    background-color: #f3e5e5;
+    border: 1px solid #e4d5cc;
+    border-left: 7px solid var(--vinho);
+    border-radius: 14px;
+
+    padding: 22px 24px;
+    margin: 30px 20px;
+
+    color: var(--texto-suave);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+
+    box-shadow: 0 3px 12px rgba(72, 18, 29, 0.05);
+}
+
+main > p:first-of-type strong {
+    color: var(--vinho);
+    font-weight: 700;
+}
+
+/* ADAPTAÇÃO PARA CELULAR */
+
+@media (max-width: 600px) {
+    main > p:first-of-type {
+        margin: 22px 15px;
+        padding: 18px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
