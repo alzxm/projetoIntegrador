@@ -968,3 +968,98 @@ html[data-tema="escuro"] footer {
     background: var(--vinho);
     color: white;
 }
+
+
+
+/* ========================================
+   ANIMAÇÕES DE ACESSIBILIDADE E TEMAS
+======================================== */
+
+/* BOTÕES A+ E A- E BOTÃO DE TEMA */
+
+.acessibilidade button,
+.botao-tema {
+    transition:
+        transform 0.2s ease,
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.2s ease;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+
+.acessibilidade button:hover,
+.botao-tema:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* EFEITO AO CLICAR */
+
+.acessibilidade button:active,
+.botao-tema:active {
+    transform: scale(0.90);
+}
+
+/* TRANSIÇÃO DO TAMANHO DAS LETRAS */
+
+h1, h2, h3, h4,
+p, a, li, span, label,
+small, strong, button,
+input, textarea, select, option {
+    transition: font-size 0.25s ease;
+}
+
+/* TRANSIÇÃO ENTRE TEMA CLARO E ESCURO */
+
+body,
+header,
+nav,
+main,
+footer,
+.cartao-conteudo,
+.atalho,
+.apresentacao,
+.apresentacao-visual,
+.mensagem-final,
+.aviso-publicacao,
+.cartao-relato-usuario,
+input,
+textarea,
+select,
+button {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* RESPEITAR PREFERÊNCIA POR MENOS ANIMAÇÕES */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .acessibilidade button,
+    .botao-tema,
+    body,
+    header,
+    nav,
+    main,
+    footer,
+    .cartao-conteudo,
+    .atalho,
+    .apresentacao,
+    .apresentacao-visual,
+    .mensagem-final,
+    .aviso-publicacao,
+    .cartao-relato-usuario,
+    input,
+    textarea,
+    select,
+    button,
+    h1, h2, h3, h4,
+    p, a, li, span, label,
+    small, strong, option {
+        transition: none !important;
+        animation: none !important;
+    }
+}
