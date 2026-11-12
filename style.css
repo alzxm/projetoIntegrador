@@ -803,3 +803,168 @@ nav a.aba-atual {
     color: var(--vinho);
 }
 
+
+
+/* MODO ESCURO */
+
+:root {
+    color-scheme: light;
+    --fundo-escuro: #21191b;
+    --cartao-escuro: #302326;
+    --menu-escuro: #291e21;
+    --texto-escuro: #f4eae5;
+    --texto-suave-escuro: #c5b3ad;
+    --borda-escura: #514047;
+}
+
+html[data-tema="escuro"] {
+    color-scheme: dark;
+
+    --creme: #21191b;
+    --creme-escuro: #291e21;
+    --branco: #302326;
+
+    --texto: #f4eae5;
+    --texto-suave: #c5b3ad;
+
+    --vinho: #d58b9a;
+    --vinho-escuro: #f0c4cc;
+    --vinho-claro: #bc7181;
+
+    --borda: #514047;
+    --dourado: #d2b477;
+}
+
+/* FUNDO E TEXTOS */
+
+html[data-tema="escuro"] body {
+    background: var(--creme);
+    color: var(--texto);
+}
+
+html[data-tema="escuro"] a {
+    color: var(--vinho);
+}
+
+/* CABEÇALHO E MENU */
+
+html[data-tema="escuro"] #cabecalho-principal,
+html[data-tema="escuro"] nav {
+    background: var(--menu-escuro);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] nav {
+    box-shadow: 0 3px 12px rgba(0,0,0,.2);
+}
+
+/* CONTEÚDO */
+
+html[data-tema="escuro"] .apresentacao,
+html[data-tema="escuro"] .cartao-conteudo {
+    background: var(--branco);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .apresentacao-visual {
+    background:
+        radial-gradient(ellipse at center, rgba(185,154,101,.12), transparent 66%),
+        var(--cartao-escuro);
+}
+
+html[data-tema="escuro"] .cartao-conteudo p,
+html[data-tema="escuro"] .cartao-conteudo li {
+    color: var(--texto-suave);
+}
+
+/* ATALHOS */
+
+html[data-tema="escuro"] .atalho {
+    background: transparent;
+    border-color: var(--borda);
+    color: var(--texto);
+}
+
+html[data-tema="escuro"] .atalho:hover {
+    background: var(--branco);
+}
+
+/* FORMULÁRIO */
+
+html[data-tema="escuro"] .campo-grupo input,
+html[data-tema="escuro"] .campo-grupo select,
+html[data-tema="escuro"] .campo-grupo textarea {
+    background: #21191b;
+    color: var(--texto);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .campo-grupo input::placeholder,
+html[data-tema="escuro"] .campo-grupo textarea::placeholder {
+    color: var(--texto-suave);
+}
+
+/* AVISOS */
+
+html[data-tema="escuro"] .aviso-publicacao {
+    background: #38272c;
+    border-color: #78505b;
+}
+
+html[data-tema="escuro"] .aviso-publicacao p {
+    color: #f0c4cc;
+}
+
+/* RELATOS */
+
+html[data-tema="escuro"] .cartao-relato-usuario {
+    background: var(--cartao-escuro);
+}
+
+html[data-tema="escuro"] .tag-relato {
+    background: #49343a;
+    color: #f0c4cc;
+}
+
+/* NOTIFICAÇÃO */
+
+html[data-tema="escuro"] .notificacao {
+    background: var(--cartao-escuro);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .notificacao strong {
+    color: var(--texto);
+}
+
+html[data-tema="escuro"] .notificacao p {
+    color: var(--texto-suave);
+}
+
+/* RODAPÉ */
+
+html[data-tema="escuro"] footer {
+    background: var(--menu-escuro);
+    border-color: var(--borda);
+    color: var(--texto-suave);
+}
+
+/* BOTÃO DE TEMA */
+
+.botao-tema {
+    min-width: 38px;
+    padding: 6px 9px;
+    border: 1px solid var(--vinho);
+    border-radius: 5px;
+    background: transparent;
+    color: var(--vinho);
+    cursor: pointer;
+    font: 600 12px 'Montserrat', sans-serif;
+    transition: .2s ease;
+}
+
+.botao-tema:hover,
+.botao-tema:focus-visible {
+    background: var(--vinho);
+    color: white;
+}
