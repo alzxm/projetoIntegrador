@@ -1,4 +1,3 @@
-
 :root {
     --vinho: #741b2b;
     --vinho-escuro: #48121d;
@@ -1040,4 +1039,15 @@ button {
         transition: none !important;
         animation: none !important;
     }
+}
+
+
+/* CORREÇÃO DO BOTÃO PRINCIPAL NO TEMA ESCURO */
+
+html[data-tema="escuro"] .botao-principal {
+    color: #ffffff !important;
+}
+
+html[data-tema="escuro"] .botao-principal:hover {
+    color: #ffffff !important;
 }
