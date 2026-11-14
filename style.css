@@ -1051,3 +1051,281 @@ html[data-tema="escuro"] .botao-principal {
 html[data-tema="escuro"] .botao-principal:hover {
     color: #ffffff !important;
 }
+
+
+
+/* SEÇÃO DE AVALIAÇÕES */
+
+.secao-avaliacoes {
+    margin-top: 35px;
+    padding: clamp(25px, 5vw, 45px);
+    border: 1px solid var(--borda);
+    border-top: 3px solid var(--vinho);
+    border-radius: 12px;
+    background: var(--branco);
+    box-shadow: 0 5px 20px rgba(50, 20, 25, .04);
+}
+
+.avaliacoes-cabecalho {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.avaliacoes-cabecalho h2 {
+    margin: 10px 0;
+    color: var(--vinho);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(23px, 4vw, 30px);
+    line-height: 1.3;
+}
+
+.avaliacoes-cabecalho p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+/* FORMULÁRIO DE AVALIAÇÃO */
+
+#form-avaliacao {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.campo-estrelas {
+    margin: 0 0 24px;
+    padding: 0;
+    border: none;
+    text-align: center;
+}
+
+.campo-estrelas legend {
+    width: 100%;
+    margin-bottom: 12px;
+    color: var(--vinho-escuro);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.selecao-estrelas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 7px;
+}
+
+.selecao-estrelas input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.selecao-estrelas label {
+    color: #c9bdb0;
+    cursor: pointer;
+    font-size: clamp(32px, 7vw, 43px);
+    line-height: 1.2;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.selecao-estrelas input:checked ~ label,
+.selecao-estrelas label:hover,
+.selecao-estrelas label:hover ~ label {
+    color: var(--dourado);
+}
+
+.selecao-estrelas label:hover {
+    transform: scale(1.12);
+}
+
+.selecao-estrelas input:focus-visible + label {
+    outline: 2px solid var(--vinho);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* CAMPO DE COMENTÁRIO */
+
+.campo-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.campo-comentario label {
+    color: var(--vinho);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-comentario textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 13px 15px;
+    resize: vertical;
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+    background: var(--creme);
+    color: var(--texto);
+    font: 13px 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+.campo-comentario textarea::placeholder {
+    color: var(--texto-suave);
+    opacity: .8;
+}
+
+.campo-comentario textarea:focus {
+    outline: 2px solid rgba(116, 27, 43, .18);
+    border-color: var(--vinho);
+}
+
+/* BOTÃO ENVIAR */
+
+.botao-avaliacao {
+    display: block;
+    min-width: 190px;
+    margin: 0 auto;
+    padding: 12px 22px;
+    border: 1px solid var(--vinho);
+    border-radius: 6px;
+    background: var(--vinho);
+    color: #fff;
+    cursor: pointer;
+    font: 600 12px 'Montserrat', sans-serif;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.botao-avaliacao:hover {
+    background: var(--vinho-escuro);
+    transform: translateY(-2px);
+}
+
+.botao-avaliacao:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+/* RESUMO DAS AVALIAÇÕES */
+
+.resumo-avaliacoes {
+    margin-top: 35px;
+    padding: 22px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: var(--creme);
+    text-align: center;
+}
+
+.resumo-avaliacoes h3 {
+    margin: 0 0 12px;
+    color: var(--vinho);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+}
+
+.resumo-avaliacoes p {
+    margin: 5px 0;
+    color: var(--texto-suave);
+    font-size: 12px;
+}
+
+.resumo-avaliacoes strong {
+    color: var(--dourado);
+    font-size: 19px;
+}
+
+/* LISTA DE AVALIAÇÕES */
+
+.lista-avaliacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 20px;
+}
+
+.cartao-avaliacao {
+    padding: 17px;
+    border: 1px solid var(--borda);
+    border-left: 3px solid var(--vinho);
+    border-radius: 7px;
+    background: var(--branco);
+}
+
+.cartao-avaliacao p {
+    margin: 8px 0 0;
+    color: var(--texto);
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.estrelas-exibidas {
+    color: var(--dourado);
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+/* MODO ESCURO */
+
+html[data-tema="escuro"] .secao-avaliacoes {
+    background: var(--branco);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .campo-comentario textarea {
+    background: var(--fundo-escuro);
+    color: var(--texto);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .campo-comentario textarea::placeholder {
+    color: var(--texto-suave);
+}
+
+html[data-tema="escuro"] .resumo-avaliacoes {
+    background: var(--cartao-escuro);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .cartao-avaliacao {
+    background: var(--cartao-escuro);
+    border-color: var(--borda);
+    border-left-color: var(--vinho);
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+    .secao-avaliacoes {
+        margin-top: 25px;
+        padding: 23px 17px;
+    }
+
+    .avaliacoes-cabecalho {
+        margin-bottom: 23px;
+    }
+
+    .avaliacoes-cabecalho p {
+        font-size: 12px;
+    }
+
+    .selecao-estrelas {
+        gap: 5px;
+    }
+
+    .selecao-estrelas label {
+        font-size: 36px;
+    }
+
+    .resumo-avaliacoes {
+        padding: 18px 12px;
+    }
+
+    .cartao-avaliacao {
+        padding: 14px;
+    }
+}
