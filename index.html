@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -120,6 +121,78 @@
             <p>
                 “A liberdade religiosa começa quando o respeito se torna uma escolha de todos.”
             </p>
+        </section>
+
+        <!-- Seção de avaliações -->
+        <section class="secao-avaliacoes" id="avaliacoes">
+
+            <div class="avaliacoes-cabecalho">
+                <span class="sobretitulo">SUA OPINIÃO IMPORTA</span>
+                <h2>O que você achou do nosso site?</h2>
+                <p>
+                    Avalie nosso projeto e deixe um comentário.
+                    Sua opinião nos ajuda a melhorar!
+                </p>
+            </div>
+
+            <form id="form-avaliacao">
+
+                <fieldset class="campo-estrelas">
+                    <legend>Como você avalia nosso site?</legend>
+
+                    <div class="selecao-estrelas">
+                        <input type="radio" id="estrela-1" name="estrelas" value="1" required>
+                        <label for="estrela-1" aria-label="1 estrela">★</label>
+
+                        <input type="radio" id="estrela-2" name="estrelas" value="2">
+                        <label for="estrela-2" aria-label="2 estrelas">★</label>
+
+                        <input type="radio" id="estrela-3" name="estrelas" value="3">
+                        <label for="estrela-3" aria-label="3 estrelas">★</label>
+
+                        <input type="radio" id="estrela-4" name="estrelas" value="4">
+                        <label for="estrela-4" aria-label="4 estrelas">★</label>
+
+                        <input type="radio" id="estrela-5" name="estrelas" value="5">
+                        <label for="estrela-5" aria-label="5 estrelas">★</label>
+                    </div>
+                </fieldset>
+
+                <div class="campo-comentario">
+                    <label for="comentario-avaliacao">Deixe seu comentário:</label>
+                    <textarea
+                        id="comentario-avaliacao"
+                        name="comentario"
+                        placeholder="Conte o que achou do nosso projeto..."
+                        rows="4"
+                        maxlength="500"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="botao-avaliacao">
+                    Enviar avaliação
+                </button>
+
+            </form>
+
+            <div class="resumo-avaliacoes" id="resumo-avaliacoes">
+                <h3>O que estão achando do projeto?</h3>
+
+                <p>
+                    Média das avaliações:
+                    <strong id="media-avaliacoes">--</strong>
+                </p>
+
+                <p id="quantidade-avaliacoes">
+                    Ainda não há avaliações.
+                </p>
+            </div>
+
+            <div class="lista-avaliacoes" id="lista-avaliacoes">
+                <!-- As avaliações serão exibidas aqui. -->
+            </div>
+
         </section>
 
     </main>
