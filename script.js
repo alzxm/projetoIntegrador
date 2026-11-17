@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // =================================
@@ -71,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const elementos = document.querySelectorAll(seletor);
 
         capturarTamanhos(elementos);
-
         aplicarFonte(elementos);
 
         localStorage.setItem(chave, escala);
@@ -106,7 +104,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // MODO CLARO, ESCURO E AUTOMÁTICO
     // =================================
 
-    const chaveTema = "preferenciaTema";
+    // Nova chave para iniciar no automático
+    const chaveTema = "preferenciaTemaV2";
 
     const temas = ["automatico", "claro", "escuro"];
 
@@ -148,29 +147,38 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
         if (tema === "automatico") {
+
             botaoTema.textContent = "Auto";
+
             botaoTema.setAttribute(
                 "aria-label",
                 "Tema automático. Clique para alterar."
             );
+
             botaoTema.title = "Tema automático";
         }
 
         if (tema === "claro") {
+
             botaoTema.textContent = "☀";
+
             botaoTema.setAttribute(
                 "aria-label",
                 "Tema claro. Clique para alterar."
             );
+
             botaoTema.title = "Tema claro";
         }
 
         if (tema === "escuro") {
+
             botaoTema.textContent = "☾";
+
             botaoTema.setAttribute(
                 "aria-label",
                 "Tema escuro. Clique para alterar."
             );
+
             botaoTema.title = "Tema escuro";
         }
 
@@ -185,7 +193,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem(chaveTema, tema);
 
         aplicarTema();
-
     });
 
     preferenciaSistema.addEventListener("change", function () {
@@ -222,7 +229,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 capturarTamanhos(novosElementos);
-
                 aplicarFonte(novosElementos);
 
             });
