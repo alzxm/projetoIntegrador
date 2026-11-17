@@ -1329,3 +1329,18 @@ html[data-tema="escuro"] .cartao-avaliacao {
         padding: 14px;
     }
 }
+
+
+/* FUNDO ROSADO DOS SÍMBOLOS NO MODO ESCURO */
+
+html[data-tema="escuro"] .apresentacao-visual {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(213, 139, 154, 0.16),
+            rgba(116, 27, 43, 0.22)
+        ),
+        var(--cartao-escuro);
+
+    border: 1px solid rgba(213, 139, 154, 0.25);
+}
