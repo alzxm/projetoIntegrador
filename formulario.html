@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -391,7 +390,92 @@
 
         carregarRelatos();
 
-    </script>
+    </script>  
+    // Elementos da seção de avaliações
+const formAvaliacao = document.getElementById("form-avaliacao");
+const listaAvaliacoes = document.getElementById("lista-avaliacoes");
+
+// 1. Buscar e exibir avaliações do Supabase
+async function carregarAvaliacoes() {
+    const { data, error } = await clienteSupabase
+        .from("avaliacoes")
+        .select("*")
+        .order("criado_em", { ascending: false });
+
+    if (error) {
+        console.error("Erro ao buscar avaliações:", error);
+        listaAvaliacoes.textContent = "Não foi possível carregar as avaliações.";
+        return;
+    }
+
+    listaAvaliacoes.replaceChildren();
+
+    if (!data || data.length === 0) {
+        listaAvaliacoes.textContent = "Nenhuma avaliação enviada ainda.";
+        return;
+    }
+
+    data.forEach((item) => {
+        const card = document.createElement("article");
+        card.className = "item-relato"; // Reaproveita o estilo dos relatos
+
+        const autor = document.createElement("strong");
+        autor.textContent = item.nome || "Anônimo";
+
+        const dataSpan = document.createElement("small");
+        const dataFormatada = new Date(item.criado_em).toLocaleDateString("pt-BR");
+        dataSpan.textContent = ` (${dataFormatada})`;
+
+        const texto = document.createElement("p");
+        texto.textContent = item.avaliacao_escrita;
+
+        card.append(autor, dataSpan, texto);
+        listaAvaliacoes.appendChild(card);
+    });
+}
+
+// 2. Enviar nova avaliação escrita para o Supabase
+formAvaliacao.addEventListener("submit", async (evento) => {
+    evento.preventDefault();
+
+    const nomeDigitado = document.getElementById("nome-avaliacao").value.trim();
+    const textoDigitado = document.getElementById("texto-avaliacao").value.trim();
+
+    if (!textoDigitado) {
+        mostrarNotificacao("Atenção", "Escreva sua avaliação antes de enviar.", "erro");
+        return;
+    }
+
+    const botao = formAvaliacao.querySelector("button[type='submit']");
+    botao.disabled = true;
+    botao.textContent = "Enviando...";
+
+    const { error } = await clienteSupabase
+        .from("avaliacoes")
+        .insert([
+            {
+                nome: nomeDigitado || "Anônimo",
+                avaliacao_escrita: textoDigitado
+            }
+        ]);
+
+    botao.disabled = false;
+    botao.textContent = "Enviar avaliação";
+
+    if (error) {
+        console.error("Erro ao enviar avaliação:", error);
+        mostrarNotificacao("Erro", "Falha ao enviar sua avaliação.", "erro");
+        return;
+    }
+
+    mostrarNotificacao("Obrigado!", "Sua avaliação foi publicada.", "sucesso");
+    formAvaliacao.reset();
+    carregarAvaliacoes();
+});
+
+// Carrega as avaliações ao abrir a página
+carregarAvaliacoes();
+
 
 </body>
 </html>
