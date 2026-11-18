@@ -1344,3 +1344,15 @@ html[data-tema="escuro"] .apresentacao-visual {
 
     border: 1px solid rgba(213, 139, 154, 0.25);
 }
+
+
+
+
+/* Símbolos religiosos em SVG */
+.simbolos-religiosos .simbolo-svg {
+    width: 36px;
+    height: 36px;
+    display: block;
+    color: #d58b9a;
+    flex-shrink: 0;
+}
