@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -68,12 +69,58 @@
             </div>
 
             <div class="apresentacao-visual">
+
                 <div class="simbolos-religiosos" aria-hidden="true">
-                    <span>✝</span>
-                    <span>☪</span>
-                    <span>ॐ</span>
-                    <span>✡</span>
-                    <span>☸</span>
+
+                    <!-- Cruz cristã -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M20 5h8v13h12v8H28v17h-8V26H8v-8h12z"
+                              fill="currentColor"/>
+                    </svg>
+
+                    <!-- Lua crescente e estrela -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M29 5a19 19 0 1 0 14 31A20 20 0 0 1 29 5z"
+                              fill="currentColor"/>
+                        <path d="m36 8 2.2 5 5.3.5-4 3.5 1.2 5.2-4.7-2.8-4.6 2.8 1.1-5.2-4-3.5 5.3-.5z"
+                              fill="currentColor"/>
+                    </svg>
+
+                    <!-- Om -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M7 28c0-7 5-12 12-12 5 0 8 3 8 7 0 4-3 7-7 7-3 0-5-2-5-5 0-2 2-4 4-4"
+                              fill="none" stroke="currentColor" stroke-width="3"
+                              stroke-linecap="round"/>
+                        <path d="M25 25c2-3 5-5 9-5 5 0 8 3 8 7 0 4-3 7-7 7-3 0-5-2-5-5"
+                              fill="none" stroke="currentColor" stroke-width="3"
+                              stroke-linecap="round"/>
+                        <path d="M25 13c4-5 12-5 15 0-3 4-8 5-12 3"
+                              fill="none" stroke="currentColor" stroke-width="3"
+                              stroke-linecap="round"/>
+                        <circle cx="35" cy="7" r="2.5" fill="currentColor"/>
+                    </svg>
+
+                    <!-- Estrela de Davi -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M24 5 43 39H5L24 5z"
+                              fill="none" stroke="currentColor"
+                              stroke-width="3" stroke-linejoin="round"/>
+                        <path d="M24 43 5 9h38L24 43z"
+                              fill="none" stroke="currentColor"
+                              stroke-width="3" stroke-linejoin="round"/>
+                    </svg>
+
+                    <!-- Roda do Dharma -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <circle cx="24" cy="24" r="18"
+                                fill="none" stroke="currentColor" stroke-width="3"/>
+                        <circle cx="24" cy="24" r="4"
+                                fill="currentColor"/>
+                        <path d="M24 6v14M24 28v14M6 24h14M28 24h14M11.3 11.3l9.9 9.9M26.8 26.8l9.9 9.9M36.7 11.3l-9.9 9.9M21.2 26.8l-9.9 9.9"
+                              stroke="currentColor" stroke-width="2.5"
+                              stroke-linecap="round"/>
+                    </svg>
+
                 </div>
 
                 <p>
@@ -149,7 +196,6 @@
             </p>
         </section>
 
-        <!-- Seção de avaliações -->
         <section class="secao-avaliacoes" id="avaliacoes">
 
             <div class="avaliacoes-cabecalho">
@@ -227,90 +273,119 @@
         <p>Integrantes: Alejandra, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
     </footer>
 
-            const SUPABASE_URL = "https://supabase.co";
-            const SUPABASE_KEY = "sb_publishable_gy5IRfRgHh-pdkIOtJbPuw_TAZPFkbh";
-            const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    <!-- Biblioteca do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <!-- Sistema de avaliações -->
+    <script>
+        const SUPABASE_URL = "https://uqovfsqveibhbsxflrhv.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_gy5IRfRgHh-pdkIOtJbPuw_TAZPFkbh";
 
-const formAvaliacao = document.getElementById('form-avaliacao');
-const mediaElemento = document.getElementById('media-avaliacoes');
-const listaComentarios = document.getElementById('lista-comentarios');
+        const supabaseClient = supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
+        const formAvaliacao = document.getElementById("form-avaliacao");
+        const mediaElemento = document.getElementById("media-avaliacoes");
+        const quantidadeElemento = document.getElementById("quantidade-avaliacoes");
+        const listaAvaliacoes = document.getElementById("lista-avaliacoes");
 
-async function carregarAvaliacoes() {
-    const { data, error } = await supabaseClient
-        .from('avaliacoes')
-        .select('*')
-        .order('id', { ascending: false });
+        async function carregarAvaliacoes() {
 
-    if (error) {
-        console.error('Erro ao buscar avaliações:', error.message);
-        return;
-    }
+            const { data, error } = await supabaseClient
+                .from("avaliacoes")
+                .select("*")
+                .order("id", { ascending: false });
 
-    if (!data || data.length === 0) {
-        if (mediaElemento) mediaElemento.textContent = 'Ainda sem avaliações';
-        return;
-    }
-
-   
-    const somaEstrelas = data.reduce((total, item) => total + item.estrelas, 0);
-    const media = (somaEstrelas / data.length).toFixed(1);
-    
-    if (mediaElemento) {
-        mediaElemento.textContent = `${media} ★ (${data.length} avaliações)`;
-    }
-
-   
-    if (listaComentarios) {
-        listaComentarios.innerHTML = '';
-        data.forEach(item => {
-            if (item.comentario && item.comentario.trim() !== '') {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${'★'.repeat(item.estrelas)}</strong> - ${item.comentario}`;
-                listaComentarios.appendChild(li);
+            if (error) {
+                console.error("Erro ao buscar avaliações:", error.message);
+                return;
             }
+
+            if (!data || data.length === 0) {
+                mediaElemento.textContent = "--";
+                quantidadeElemento.textContent = "Ainda não há avaliações.";
+                listaAvaliacoes.innerHTML = "";
+                return;
+            }
+
+            const somaEstrelas = data.reduce(
+                (total, item) => total + Number(item.estrelas),
+                0
+            );
+
+            const media = (somaEstrelas / data.length).toFixed(1);
+
+            mediaElemento.textContent = `${media} ★`;
+            quantidadeElemento.textContent =
+                `${data.length} avaliação(ões) recebida(s).`;
+
+            listaAvaliacoes.innerHTML = "";
+
+            data.forEach(item => {
+
+                if (item.comentario && item.comentario.trim() !== "") {
+
+                    const avaliacao = document.createElement("div");
+                    avaliacao.className = "item-avaliacao";
+
+                    const estrelas = document.createElement("strong");
+                    estrelas.textContent = "★".repeat(Number(item.estrelas));
+
+                    const comentario = document.createElement("p");
+                    comentario.textContent = item.comentario;
+
+                    avaliacao.appendChild(estrelas);
+                    avaliacao.appendChild(comentario);
+
+                    listaAvaliacoes.appendChild(avaliacao);
+                }
+
+            });
+        }
+
+        formAvaliacao.addEventListener("submit", async function(evento) {
+
+            evento.preventDefault();
+
+            const estrelaSelecionada = document.querySelector(
+                'input[name="estrelas"]:checked'
+            );
+
+            const comentarioTexto = document.getElementById(
+                "comentario-avaliacao"
+            ).value.trim();
+
+            if (!estrelaSelecionada) {
+                alert("Por favor, selecione uma nota de 1 a 5 estrelas.");
+                return;
+            }
+
+            const novaAvaliacao = {
+                estrelas: Number(estrelaSelecionada.value),
+                comentario: comentarioTexto
+            };
+
+            const { error } = await supabaseClient
+                .from("avaliacoes")
+                .insert([novaAvaliacao]);
+
+            if (error) {
+                alert("Erro ao enviar avaliação: " + error.message);
+                console.error(error);
+                return;
+            }
+
+            alert("Obrigado pela sua avaliação!");
+
+            formAvaliacao.reset();
+
+            await carregarAvaliacoes();
         });
-    }
-}
 
-
-if (formAvaliacao) {
-    formAvaliacao.addEventListener('submit', async (evento) => {
-        evento.preventDefault();
-
-        const estrelaSelecionada = document.querySelector('input[name="estrelas"]:checked');
-        const comentarioTexto = document.getElementById('comentario-avaliacao').value;
-
-        if (!estrelaSelecionada) {
-            alert('Por favor, selecione uma nota de 1 a 5 estrelas.');
-            return;
-        }
-
-        const novaAvaliacao = {
-            estrelas: parseInt(estrelaSelecionada.value),
-            comentario: comentarioTexto
-        };
-
-        const { error } = await supabaseClient
-            .from('avaliacoes')
-            .insert([novaAvaliacao]);
-
-        if (error) {
-            alert('Erro ao enviar avaliação: ' + error.message);
-            console.error(error);
-            return;
-        }
-
-        alert('Obrigado pela sua avaliação!');
-        formAvaliacao.reset();
         carregarAvaliacoes();
-    });
-}
-
-// Executa ao abrir a página
-carregarAvaliacoes();
-
+    </script>
 
 </body>
 </html>
