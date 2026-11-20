@@ -1060,3 +1060,442 @@ html[data-tema="escuro"] .botao-principal {
 html[data-tema="escuro"] .botao-principal:hover {
     color: #ffffff !important;
 }
+
+
+
+/* SEÇÃO DE AVALIAÇÕES */
+
+.secao-avaliacoes {
+    margin-top: 65px;
+    padding: clamp(22px, 4vw, 42px);
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+    background: var(--branco);
+}
+
+.avaliacoes-cabecalho {
+    margin-bottom: 28px;
+}
+
+.avaliacoes-cabecalho h2 {
+    margin: 8px 0 10px;
+    color: var(--texto);
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-size: clamp(27px, 4vw, 38px);
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.avaliacoes-cabecalho p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+.painel-avaliacoes {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    gap: 28px;
+    align-items: start;
+    padding: 25px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--creme);
+}
+
+/* FORMULÁRIO */
+
+#form-avaliacao {
+    min-width: 0;
+}
+
+.campo-estrelas {
+    margin: 0 0 22px;
+    padding: 14px 16px 17px;
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+}
+
+.campo-estrelas legend {
+    padding: 0 7px;
+    color: var(--vinho);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+}
+
+.selecao-estrelas {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 7px;
+}
+
+.selecao-estrelas input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.selecao-estrelas label {
+    color: #c9bdb7;
+    cursor: pointer;
+    font-size: 29px;
+    line-height: 1.2;
+    transition: color .2s ease, transform .2s ease;
+}
+
+.selecao-estrelas label:hover,
+.selecao-estrelas label:hover ~ label,
+.selecao-estrelas input:checked ~ label {
+    color: var(--dourado);
+}
+
+.selecao-estrelas label:hover {
+    transform: scale(1.12);
+}
+
+.selecao-estrelas input:focus-visible + label {
+    outline: 2px solid var(--vinho);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+.campo-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 17px;
+}
+
+.campo-comentario label {
+    color: var(--texto);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-comentario textarea {
+    width: 100%;
+    min-height: 115px;
+    padding: 13px;
+    resize: vertical;
+    border: 1px solid var(--borda);
+    border-radius: 7px;
+    background: var(--branco);
+    color: var(--texto);
+    font: 13px 'Montserrat', sans-serif;
+    line-height: 1.6;
+}
+
+.campo-comentario textarea:focus {
+    outline: 2px solid rgba(116, 27, 43, .15);
+    border-color: var(--vinho);
+}
+
+.campo-comentario textarea::placeholder {
+    color: var(--texto-suave);
+    opacity: .8;
+}
+
+.botao-avaliacao {
+    padding: 11px 19px;
+    border: 1px solid var(--vinho);
+    border-radius: 6px;
+    background: var(--vinho);
+    color: white;
+    cursor: pointer;
+    font: 600 12px 'Montserrat', sans-serif;
+    transition: .2s ease;
+}
+
+.botao-avaliacao:hover {
+    background: var(--vinho-escuro);
+    transform: translateY(-2px);
+}
+
+.botao-avaliacao:disabled {
+    opacity: .6;
+    cursor: wait;
+    transform: none;
+}
+
+/* RESUMO E ESTATÍSTICAS */
+
+.resumo-avaliacoes {
+    min-width: 0;
+}
+
+.resumo-avaliacoes h3,
+.cabecalho-comentarios h3 {
+    margin: 0 0 20px;
+    color: var(--texto);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.painel-estatisticas {
+    display: grid;
+    grid-template-columns: minmax(105px, .75fr) minmax(0, 1.25fr);
+    gap: 20px;
+    align-items: center;
+}
+
+.media-destaque {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.media-destaque > strong {
+    color: var(--vinho);
+    font-family: 'Bodoni Moda', Georgia, serif;
+    font-size: clamp(48px, 7vw, 67px);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.estrelas-media {
+    margin: 5px 0 8px;
+    color: var(--dourado);
+    font-size: 19px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.media-destaque > span {
+    color: var(--texto-suave);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+/* BARRAS DE DISTRIBUIÇÃO */
+
+.distribuicao-estrelas {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    width: 100%;
+}
+
+.linha-distribuicao {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr) 25px;
+    align-items: center;
+    gap: 9px;
+}
+
+.linha-distribuicao > span {
+    color: var(--texto);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.barra-fundo {
+    width: 100%;
+    height: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--creme-escuro);
+}
+
+.barra-preenchimento {
+    width: 0;
+    height: 100%;
+    border-radius: 20px;
+    background: var(--vinho);
+    transition: width .5s ease;
+}
+
+.linha-distribuicao small {
+    color: var(--texto-suave);
+    font-size: 10px;
+    text-align: right;
+}
+
+/* LISTA DE COMENTÁRIOS */
+
+.cabecalho-comentarios {
+    margin: 35px 0 17px;
+    padding-top: 25px;
+    border-top: 1px solid var(--borda);
+}
+
+.cabecalho-comentarios h3 {
+    margin-bottom: 5px;
+}
+
+.cabecalho-comentarios p {
+    margin: 0;
+    color: var(--texto-suave);
+    font-size: 12px;
+}
+
+.lista-avaliacoes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.item-avaliacao {
+    min-width: 0;
+    padding: 19px;
+    border: 1px solid var(--borda);
+    border-left: 3px solid var(--vinho);
+    border-radius: 9px;
+    background: var(--creme);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.item-avaliacao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(50, 20, 25, .06);
+}
+
+.topo-avaliacao {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 13px;
+}
+
+.estrelas-comentario {
+    color: var(--dourado);
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+
+.selo-avaliacao {
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: var(--creme-escuro);
+    color: var(--vinho);
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.texto-avaliacao {
+    margin: 0;
+    color: var(--texto);
+    font-size: 13px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+.mensagem-sem-avaliacoes {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 22px;
+    border: 1px dashed var(--borda);
+    border-radius: 8px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    text-align: center;
+}
+
+/* TEMA ESCURO */
+
+html[data-tema="escuro"] .secao-avaliacoes {
+    background: var(--branco);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .painel-avaliacoes,
+html[data-tema="escuro"] .item-avaliacao {
+    background: var(--cartao-escuro);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .campo-estrelas {
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .campo-comentario textarea {
+    background: var(--creme);
+    color: var(--texto);
+    border-color: var(--borda);
+}
+
+html[data-tema="escuro"] .barra-fundo {
+    background: #49343a;
+}
+
+html[data-tema="escuro"] .barra-preenchimento {
+    background: var(--vinho);
+}
+
+html[data-tema="escuro"] .selo-avaliacao {
+    background: #49343a;
+    color: var(--vinho-escuro);
+}
+
+html[data-tema="escuro"] .selecao-estrelas label {
+    color: #69535a;
+}
+
+html[data-tema="escuro"] .selecao-estrelas label:hover,
+html[data-tema="escuro"] .selecao-estrelas label:hover ~ label,
+html[data-tema="escuro"] .selecao-estrelas input:checked ~ label {
+    color: var(--dourado);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 750px) {
+    .painel-avaliacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .painel-estatisticas {
+        grid-template-columns: minmax(105px, .65fr) minmax(0, 1.35fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .secao-avaliacoes {
+        margin-top: 40px;
+        padding: 20px 15px;
+    }
+
+    .painel-avaliacoes {
+        gap: 27px;
+        padding: 17px 13px;
+    }
+
+    .avaliacoes-cabecalho h2 {
+        font-size: 28px;
+    }
+
+    .avaliacoes-cabecalho p {
+        font-size: 12px;
+    }
+
+    .resumo-avaliacoes h3,
+    .cabecalho-comentarios h3 {
+        font-size: 18px;
+    }
+
+    .painel-estatisticas {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .media-destaque > strong {
+        font-size: 58px;
+    }
+
+    .distribuicao-estrelas {
+        gap: 12px;
+    }
+
+    .lista-avaliacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .item-avaliacao {
+        padding: 16px;
+    }
+}
