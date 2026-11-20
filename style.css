@@ -1499,3 +1499,67 @@ html[data-tema="escuro"] .selecao-estrelas input:checked ~ label {
         padding: 16px;
     }
 }
+
+
+/* ANIMAÇÃO DAS ESTRELAS DE AVALIAÇÃO */
+
+.selecao-estrelas label {
+    display: inline-block;
+    transform: scale(1);
+    transition:
+        color .25s ease,
+        transform .25s ease,
+        text-shadow .25s ease;
+}
+
+/* Efeito ao tocar ou passar o mouse */
+
+.selecao-estrelas label:hover {
+    transform: scale(1.2);
+}
+
+/* Animação da estrela selecionada */
+
+.selecao-estrelas input:checked + label {
+    animation: estrela-selecionada .45s ease;
+    color: var(--dourado);
+}
+
+/* Animação das estrelas preenchidas */
+
+.selecao-estrelas input:checked ~ label {
+    color: var(--dourado);
+}
+
+/* Movimento de seleção */
+
+@keyframes estrela-selecionada {
+    0% {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+    }
+
+    35% {
+        transform: scale(1.4) rotate(-8deg);
+        text-shadow: 0 0 12px rgba(185, 154, 101, .5);
+    }
+
+    65% {
+        transform: scale(.9) rotate(5deg);
+    }
+
+    100% {
+        transform: scale(1);
+        text-shadow: 0 0 0 transparent;
+    }
+}
+
+/* Respeita a preferência por menos animações */
+
+@media (prefers-reduced-motion: reduce) {
+    .selecao-estrelas label,
+    .selecao-estrelas input:checked + label {
+        animation: none;
+        transition: none;
+    }
+}
