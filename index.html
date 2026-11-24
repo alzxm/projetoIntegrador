@@ -1,417 +1,488 @@
-<!DOCTYPE html>  <html lang="pt-br">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <meta name="description" content="Projeto educativo sobre intolerância religiosa e respeito à diversidade de crenças.">  
-    <title>Intolerância Religiosa | Projeto</title>  <link rel="icon" type="image/svg+xml" href="favicon.svg">  
-
-<link rel="preconnect" href="https://fonts.googleapis.com">  
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">  
-
-<link rel="stylesheet" href="style.css">  
-<script src="script.js" defer></script>
-
-</head>  <body>  <header id="cabecalho-principal">  
-    <a class="marca" href="index.html">  
-        <span class="marca-simbolo">✦</span>  
-        <span>  
-            <strong>Intolerância Religiosa</strong>  
-            <small>Projeto para respeitar as religiões</small>  
-        </span>  
-    </a>  
-</header>  
-
-<nav aria-label="Navegação principal">  
-    <a href="index.html" aria-current="page">Início</a>  
-    <a href="problema.html">Entenda o Problema</a>  
-    <a href="impactos.html">Impactos</a>  
-    <a href="combate.html">Como Combater</a>  
-    <a href="imagens.html">Imagens</a>  
-    <a href="formulario.html">Formulário</a>  
-    <a href="denuncie.html">Onde denunciar</a>  
-
-    <div class="acessibilidade">  
-        <button type="button" id="aumentar-fonte">A+</button>  
-        <button type="button" id="diminuir-fonte">A-</button>  
-    </div>  
-</nav>  
-
-<main class="inicio">  
-
-    <section class="apresentacao">  
-
-        <div class="apresentacao-texto">  
-            <span class="sobretitulo">RESPEITO À DIVERSIDADE</span>  
-
-            <h1>Intolerância <span>Religiosa</span></h1>  
-
-            <p class="frase-destaque">  
-                Respeitar a fé do outro também é uma forma de construir um mundo melhor.  
-            </p>  
-
-            <p class="texto-intro">  
-                A intolerância religiosa acontece quando alguém é desrespeitado,  
-                discriminado ou sofre violência por causa de sua crença.  
-                Conhecer o tema é um passo importante para combater o preconceito.  
-            </p>  
-
-            <a class="botao-principal" href="problema.html">  
-                Conheça o problema <span>→</span>  
-            </a>  
-        </div>  
-
-        <div class="apresentacao-visual">  
-
-            <div class="simbolos-religiosos" aria-hidden="true">  
-
-                <!-- Cruz -->  
-                <svg class="simbolo-svg" viewBox="0 0 48 48">  
-                    <path d="M24 7V41M12 19H36"  
-                          fill="none"  
-                          stroke="currentColor"  
-                          stroke-width="2"  
-                          stroke-linecap="round"/>  
-                </svg>  
-
-                <!-- Lua crescente e estrela -->  
-                <svg class="simbolo-svg" viewBox="0 0 48 48">  
-                    <path d="M31 7  
-                             C21 8 14 17 15 27  
-                             C16 37 25 42 35 38  
-                             C26 37 20 30 20 22  
-                             C20 15 25 9 31 7Z"  
-                          fill="none"  
-                          stroke="currentColor"  
-                          stroke-width="1.8"  
-                          stroke-linejoin="round"/>  
-
-                    <path d="M35 12L36.8 16.5L41.5 17L38 20.2L39 25L35 22.5L31 25L32 20.2L28.5 17L33.2 16.5Z"  
-                          fill="currentColor"/>  
-                </svg>  
-
-                <!-- Om -->  
-                <svg class="simbolo-svg" viewBox="0 0 48 48">  
-                    <path d="M8 29  
-                             C8 22 14 18 19 21  
-                             C24 24 20 33 15 31  
-                             C11 30 12 24 16 23  
-                             M21 27  
-                             C24 20 33 19 37 24  
-                             C41 29 36 35 31 32  
-                             C27 29 31 25 34 27  
-                             M22 14  
-                             C26 9 34 10 37 14  
-                             C34 18 28 19 24 16"  
-                          fill="none"  
-                          stroke="currentColor"  
-                          stroke-width="1.8"  
-                          stroke-linecap="round"  
-                          stroke-linejoin="round"/>  
-
-                    <circle cx="36" cy="9" r="1.5" fill="currentColor"/>  
-                </svg>  
-
-                <!-- Estrela de Davi -->  
-                <svg class="simbolo-svg" viewBox="0 0 48 48">  
-                    <path d="M24 7L42 39H6L24 7Z  
-                             M24 41L6 9H42L24 41Z"  
-                          fill="none"  
-                          stroke="currentColor"  
-                          stroke-width="1.8"  
-                          stroke-linejoin="round"/>  
-                </svg>  
-
-                <!-- Roda do Dharma -->  
-                <svg class="simbolo-svg" viewBox="0 0 48 48">  
-                    <circle cx="24" cy="24" r="17"  
-                            fill="none"  
-                            stroke="currentColor"  
-                            stroke-width="1.8"/>  
-
-                    <circle cx="24" cy="24" r="3"  
-                            fill="none"  
-                            stroke="currentColor"  
-                            stroke-width="1.8"/>  
-
-                    <path d="M24 7V21M24 27V41  
-                             M7 24H21M27 24H41  
-                             M12 12L22 22M26 26L36 36  
-                             M36 12L26 22M22 26L12 36"  
-                          fill="none"  
-                          stroke="currentColor"  
-                          stroke-width="1.8"  
-                          stroke-linecap="round"/>  
-                </svg>  
-
-            </div>  
-
-            <p>  
-                Respeito não exige que todos acreditem igual.  
-            </p>  
-
-            <div class="linha-decorativa"></div>  
-        </div>  
-
-    </section>  
-
-    <section class="atalhos">  
-
-        <a class="atalho" href="problema.html">  
-            <span class="atalho-numero">01</span>  
-            <span class="atalho-conteudo">  
-                <strong>Entenda o problema</strong>  
-                <small>Conheça o que é a intolerância religiosa e por que acontece.</small>  
-            </span>  
-            <span class="atalho-seta">↗</span>  
-        </a>  
-
-        <a class="atalho" href="impactos.html">  
-            <span class="atalho-numero">02</span>  
-            <span class="atalho-conteudo">  
-                <strong>Impactos</strong>  
-                <small>Veja como o preconceito afeta pessoas e comunidades.</small>  
-            </span>  
-            <span class="atalho-seta">↗</span>  
-        </a>  
-
-        <a class="atalho" href="combate.html">  
-            <span class="atalho-numero">03</span>  
-            <span class="atalho-conteudo">  
-                <strong>Como combater</strong>  
-                <small>Descubra atitudes que ajudam a promover o respeito.</small>  
-            </span>  
-            <span class="atalho-seta">↗</span>  
-        </a>  
-
-        <a class="atalho" href="imagens.html">  
-            <span class="atalho-numero">04</span>  
-            <span class="atalho-conteudo">  
-                <strong>Imagens</strong>  
-                <small>Veja imagens e registros relacionados à intolerância religiosa.</small>  
-            </span>  
-            <span class="atalho-seta">↗</span>  
-        </a>  
-
-        <a class="atalho" href="formulario.html">  
-            <span class="atalho-numero">05</span>  
-            <span class="atalho-conteudo">  
-                <strong>Formulário</strong>  
-                <small>Compartilhe seu relato e contribua com a conscientização.</small>  
-            </span>  
-            <span class="atalho-seta">↗</span>  
-        </a>  
-
-        <a class="atalho" href="denuncie.html">  
-            <span class="atalho-numero">06</span>  
-            <span class="atalho-conteudo">  
-                <strong>Onde denunciar</strong>  
-                <small>Conheça os canais disponíveis para denunciar casos de intolerância.</small>  
-            </span>  
-            <span class="atalho-seta">↗</span>  
-        </a>  
-
-    </section>  
-
-    <section class="mensagem-final">  
-        <p>  
-            “A liberdade religiosa começa quando o respeito se torna uma escolha de todos.”  
-        </p>  
-    </section>  
-
-    <section class="secao-avaliacoes" id="avaliacoes">  
-
-        <div class="avaliacoes-cabecalho">  
-            <span class="sobretitulo">SUA OPINIÃO IMPORTA</span>  
-            <h2>O que você achou do nosso site?</h2>  
-            <p>  
-                Avalie nosso projeto e deixe um comentário.  
-                Sua opinião nos ajuda a melhorar!  
-            </p>  
-        </div>  
-
-        <form id="form-avaliacao">  
-
-            <fieldset class="campo-estrelas">  
-                <legend>Como você avalia nosso site?</legend>  
-
-                <div class="selecao-estrelas">  
-
-                    <input type="radio" id="estrela-5" name="estrelas" value="5">  
-                    <label for="estrela-5" aria-label="5 estrelas">★</label>  
-
-                    <input type="radio" id="estrela-4" name="estrelas" value="4">  
-                    <label for="estrela-4" aria-label="4 estrelas">★</label>  
-
-                    <input type="radio" id="estrela-3" name="estrelas" value="3">  
-                    <label for="estrela-3" aria-label="3 estrelas">★</label>  
-
-                    <input type="radio" id="estrela-2" name="estrelas" value="2">  
-                    <label for="estrela-2" aria-label="2 estrelas">★</label>  
-
-                    <input type="radio" id="estrela-1" name="estrelas" value="1">  
-                    <label for="estrela-1" aria-label="1 estrela">★</label>  
-
-                </div>  
-            </fieldset>  
-
-            <div class="campo-comentario">  
-                <label for="comentario-avaliacao">Deixe seu comentário (opcional):</label>  
-                <textarea  
-                    id="comentario-avaliacao"  
-                    name="comentario"  
-                    placeholder="Conte o que achou do nosso projeto... (opcional)"  
-                    rows="4"  
-                    maxlength="500"  
-                ></textarea>  
-            </div>  
-
-            <button type="submit" class="botao-avaliacao">  
-                Enviar avaliação  
-            </button>  
-
-        </form>  
-
-        <div class="resumo-avaliacoes" id="resumo-avaliacoes">  
-            <h3>O que estão achando do projeto?</h3>  
-
-            <p>  
-                Média das avaliações:  
-                <strong id="media-avaliacoes">--</strong>  
-            </p>  
-
-            <p id="quantidade-avaliacoes">  
-                Ainda não há avaliações.  
-            </p>  
-        </div>  
-
-        <div class="lista-avaliacoes" id="lista-avaliacoes">  
-            <!-- As avaliações serão exibidas aqui. -->  
-        </div>  
-
-    </section>  
-
-</main>  
-
-<footer>  
-    <p>Projeto Integrador</p>  
-    <p>Integrantes: Alejandra, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>  
-</footer>  
-
-<!-- Biblioteca do Supabase -->  
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>  
-
-<!-- Sistema de avaliações -->  
-<script>  
-    const SUPABASE_URL = "https://uqovfsqveibhbsxflrhv.supabase.co";  
-    const SUPABASE_KEY = "sb_publishable_gy5IRfRgHh-pdkIOtJbPuw_TAZPFkbh";  
-
-    const supabaseClient = supabase.createClient(  
-        SUPABASE_URL,  
-        SUPABASE_KEY  
-    );  
-
-    const formAvaliacao = document.getElementById("form-avaliacao");  
-    const mediaElemento = document.getElementById("media-avaliacoes");  
-    const quantidadeElemento = document.getElementById("quantidade-avaliacoes");  
-    const listaAvaliacoes = document.getElementById("lista-avaliacoes");  
-
-    async function carregarAvaliacoes() {  
-
-        const { data, error } = await supabaseClient  
-            .from("avaliacoes")  
-            .select("*")  
-            .order("id", { ascending: false });  
-
-        if (error) {  
-            console.error("Erro ao buscar avaliações:", error.message);  
-            return;  
-        }  
-
-        if (!data || data.length === 0) {  
-            mediaElemento.textContent = "--";  
-            quantidadeElemento.textContent = "Ainda não há avaliações.";  
-            listaAvaliacoes.innerHTML = "";  
-            return;  
-        }  
-
-        const somaEstrelas = data.reduce(  
-            (total, item) => total + Number(item.estrelas),  
-            0  
-        );  
-
-        const media = (somaEstrelas / data.length).toFixed(1);  
-
-        mediaElemento.textContent = `${media} ★`;  
-
-        quantidadeElemento.textContent =  
-            `${data.length} avaliação(ões) recebida(s).`;  
-
-        listaAvaliacoes.innerHTML = "";  
-
-        data.forEach(item => {  
-
-            if (item.comentario && item.comentario.trim() !== "") {  
-
-                const avaliacao = document.createElement("div");  
-                avaliacao.className = "item-avaliacao";  
-
-                const estrelas = document.createElement("strong");  
-                estrelas.textContent = "★".repeat(Number(item.estrelas));  
-
-                const comentario = document.createElement("p");  
-                comentario.textContent = item.comentario;  
-
-                avaliacao.appendChild(estrelas);  
-                avaliacao.appendChild(comentario);  
-
-                listaAvaliacoes.appendChild(avaliacao);  
-            }  
-
-        });  
-    }  
-
-    formAvaliacao.addEventListener("submit", async function(evento) {  
-
-        evento.preventDefault();  
-
-        const estrelaSelecionada = document.querySelector(  
-            'input[name="estrelas"]:checked'  
-        );  
-
-        const comentarioTexto = document.getElementById(  
-            "comentario-avaliacao"  
-        ).value.trim();  
-
-        if (!estrelaSelecionada) {  
-            alert("Por favor, selecione uma nota de 1 a 5 estrelas.");  
-            return;  
-        }  
-
-        const novaAvaliacao = {  
-            estrelas: Number(estrelaSelecionada.value),  
-            comentario: comentarioTexto  
-        };  
-
-        const { error } = await supabaseClient  
-            .from("avaliacoes")  
-            .insert([novaAvaliacao]);  
-
-        if (error) {  
-            alert("Erro ao enviar avaliação: " + error.message);  
-            console.error(error);  
-            return;  
-        }  
-
-        alert("Obrigado pela sua avaliação!");  
-
-        formAvaliacao.reset();  
-
-        await carregarAvaliacoes();  
-    });  
-
-    carregarAvaliacoes();  
-</script>
-
-</body>  
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projeto educativo sobre intolerância religiosa e respeito à diversidade de crenças.">
+
+    <title>Intolerância Religiosa | Projeto</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header id="cabecalho-principal">
+        <a class="marca" href="index.html">
+            <span class="marca-simbolo">✦</span>
+
+            <span>
+                <strong>Intolerância Religiosa</strong>
+                <small>Projeto para respeitar as religiões</small>
+            </span>
+        </a>
+    </header>
+
+    <!-- Navegação -->
+    <nav aria-label="Navegação principal">
+        <a href="index.html" aria-current="page">Início</a>
+        <a href="problema.html">Entenda o Problema</a>
+        <a href="impactos.html">Impactos</a>
+        <a href="combate.html">Como Combater</a>
+        <a href="imagens.html">Imagens</a>
+        <a href="formulario.html">Formulário</a>
+        <a href="denuncie.html">Onde denunciar</a>
+
+        <div class="acessibilidade">
+            <button type="button" id="aumentar-fonte">A+</button>
+            <button type="button" id="diminuir-fonte">A-</button>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="inicio">
+
+        <!-- Apresentação -->
+        <section class="apresentacao">
+
+            <div class="apresentacao-texto">
+                <span class="sobretitulo">RESPEITO À DIVERSIDADE</span>
+
+                <h1>Intolerância <span>Religiosa</span></h1>
+
+                <p class="frase-destaque">
+                    Respeitar a fé do outro também é uma forma de construir um mundo melhor.
+                </p>
+
+                <p class="texto-intro">
+                    A intolerância religiosa acontece quando alguém é desrespeitado,
+                    discriminado ou sofre violência por causa de sua crença.
+                    Conhecer o tema é um passo importante para combater o preconceito.
+                </p>
+
+                <a class="botao-principal" href="problema.html">
+                    Conheça o problema <span>→</span>
+                </a>
+            </div>
+
+            <!-- Símbolos religiosos -->
+            <div class="apresentacao-visual">
+
+                <div class="simbolos-religiosos" aria-hidden="true">
+
+                    <!-- Cruz -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M24 7V41M12 19H36"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"/>
+                    </svg>
+
+                    <!-- Lua crescente e estrela -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M31 7
+                                 C21 8 14 17 15 27
+                                 C16 37 25 42 35 38
+                                 C26 37 20 30 20 22
+                                 C20 15 25 9 31 7Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linejoin="round"/>
+
+                        <path d="M35 12L36.8 16.5L41.5 17L38 20.2L39 25L35 22.5L31 25L32 20.2L28.5 17L33.2 16.5Z"
+                              fill="currentColor"/>
+                    </svg>
+
+                    <!-- Om -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M8 29
+                                 C8 22 14 18 19 21
+                                 C24 24 20 33 15 31
+                                 C11 30 12 24 16 23
+                                 M21 27
+                                 C24 20 33 19 37 24
+                                 C41 29 36 35 31 32
+                                 C27 29 31 25 34 27
+                                 M22 14
+                                 C26 9 34 10 37 14
+                                 C34 18 28 19 24 16"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+
+                        <circle cx="36" cy="9" r="1.5" fill="currentColor"/>
+                    </svg>
+
+                    <!-- Estrela de Davi -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <path d="M24 7L42 39H6L24 7Z
+                                 M24 41L6 9H42L24 41Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linejoin="round"/>
+                    </svg>
+
+                    <!-- Roda do Dharma -->
+                    <svg class="simbolo-svg" viewBox="0 0 48 48">
+                        <circle cx="24" cy="24" r="17"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"/>
+
+                        <circle cx="24" cy="24" r="3"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.8"/>
+
+                        <path d="M24 7V21M24 27V41
+                                 M7 24H21M27 24H41
+                                 M12 12L22 22M26 26L36 36
+                                 M36 12L26 22M22 26L12 36"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"/>
+                    </svg>
+
+                </div>
+
+                <p>
+                    Respeito não exige que todos acreditem igual.
+                </p>
+
+                <div class="linha-decorativa"></div>
+            </div>
+
+        </section>
+
+        <!-- Atalhos para as páginas -->
+        <section class="atalhos">
+
+            <a class="atalho" href="problema.html">
+                <span class="atalho-numero">01</span>
+
+                <span class="atalho-conteudo">
+                    <strong>Entenda o problema</strong>
+                    <small>Conheça o que é a intolerância religiosa e por que acontece.</small>
+                </span>
+
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="impactos.html">
+                <span class="atalho-numero">02</span>
+
+                <span class="atalho-conteudo">
+                    <strong>Impactos</strong>
+                    <small>Veja como o preconceito afeta pessoas e comunidades.</small>
+                </span>
+
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="combate.html">
+                <span class="atalho-numero">03</span>
+
+                <span class="atalho-conteudo">
+                    <strong>Como combater</strong>
+                    <small>Descubra atitudes que ajudam a promover o respeito.</small>
+                </span>
+
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="imagens.html">
+                <span class="atalho-numero">04</span>
+
+                <span class="atalho-conteudo">
+                    <strong>Imagens</strong>
+                    <small>Veja imagens e registros relacionados à intolerância religiosa.</small>
+                </span>
+
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="formulario.html">
+                <span class="atalho-numero">05</span>
+
+                <span class="atalho-conteudo">
+                    <strong>Formulário</strong>
+                    <small>Compartilhe seu relato e contribua com a conscientização.</small>
+                </span>
+
+                <span class="atalho-seta">↗</span>
+            </a>
+
+            <a class="atalho" href="denuncie.html">
+                <span class="atalho-numero">06</span>
+
+                <span class="atalho-conteudo">
+                    <strong>Onde denunciar</strong>
+                    <small>Conheça os canais disponíveis para denunciar casos de intolerância.</small>
+                </span>
+
+                <span class="atalho-seta">↗</span>
+            </a>
+
+        </section>
+
+        <!-- Mensagem final -->
+        <section class="mensagem-final">
+            <p>
+                “A liberdade religiosa começa quando o respeito se torna uma escolha de todos.”
+            </p>
+        </section>
+
+        <!-- Avaliações -->
+        <section class="secao-avaliacoes" id="avaliacoes">
+
+            <div class="avaliacoes-cabecalho">
+                <span class="sobretitulo">SUA OPINIÃO IMPORTA</span>
+
+                <h2>O que você achou do nosso site?</h2>
+
+                <p>
+                    Avalie nosso projeto e deixe um comentário.
+                    Sua opinião nos ajuda a melhorar!
+                </p>
+            </div>
+
+            <form id="form-avaliacao">
+
+                <fieldset class="campo-estrelas">
+                    <legend>Como você avalia nosso site?</legend>
+
+                    <div class="selecao-estrelas">
+
+                        <input type="radio" id="estrela-5" name="estrelas" value="5">
+                        <label for="estrela-5" aria-label="5 estrelas">★</label>
+
+                        <input type="radio" id="estrela-4" name="estrelas" value="4">
+                        <label for="estrela-4" aria-label="4 estrelas">★</label>
+
+                        <input type="radio" id="estrela-3" name="estrelas" value="3">
+                        <label for="estrela-3" aria-label="3 estrelas">★</label>
+
+                        <input type="radio" id="estrela-2" name="estrelas" value="2">
+                        <label for="estrela-2" aria-label="2 estrelas">★</label>
+
+                        <input type="radio" id="estrela-1" name="estrelas" value="1">
+                        <label for="estrela-1" aria-label="1 estrela">★</label>
+
+                    </div>
+                </fieldset>
+
+                <div class="campo-comentario">
+                    <label for="comentario-avaliacao">
+                        Deixe seu comentário (opcional):
+                    </label>
+
+                    <textarea
+                        id="comentario-avaliacao"
+                        name="comentario"
+                        placeholder="Conte o que achou do nosso projeto... (opcional)"
+                        rows="4"
+                        maxlength="500"
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="botao-avaliacao">
+                    Enviar avaliação
+                </button>
+
+            </form>
+
+            <!-- Resumo das avaliações -->
+            <div class="resumo-avaliacoes" id="resumo-avaliacoes">
+
+                <h3>O que estão achando do projeto?</h3>
+
+                <p>
+                    Média das avaliações:
+                    <strong id="media-avaliacoes">--</strong>
+                </p>
+
+                <p id="quantidade-avaliacoes">
+                    Ainda não há avaliações.
+                </p>
+
+            </div>
+
+            <!-- Comentários recebidos -->
+            <div class="lista-avaliacoes" id="lista-avaliacoes">
+                <!-- As avaliações serão exibidas aqui. -->
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Projeto Integrador</p>
+        <p>Integrantes: Alejandra, Rogério, Mikael, Kimberly | Turma 2ºTDS</p>
+    </footer>
+
+    <!-- Janela personalizada de agradecimento -->
+    <div
+        class="modal-agradecimento"
+        id="modal-agradecimento"
+        aria-hidden="true"
+    >
+        <div
+            class="modal-conteudo"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="titulo-agradecimento"
+        >
+            <span class="modal-detalhe" aria-hidden="true">✦</span>
+
+            <h2 id="titulo-agradecimento">Projeto Integrador</h2>
+
+            <p class="modal-subtitulo">A equipe agradece!</p>
+
+            <p>
+                Sua avaliação foi recebida com sucesso.
+                Sua opinião é muito importante para nós e ajuda a melhorar nosso projeto.
+            </p>
+
+            <button type="button" id="fechar-agradecimento">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <!-- Biblioteca do Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Sistema de avaliações -->
+    <script>
+        const SUPABASE_URL = "https://uqovfsqveibhbsxflrhv.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_gy5IRfRgHh-pdkIOtJbPuw_TAZPFkbh";
+
+        const supabaseClient = supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+        const formAvaliacao = document.getElementById("form-avaliacao");
+        const mediaElemento = document.getElementById("media-avaliacoes");
+        const quantidadeElemento = document.getElementById("quantidade-avaliacoes");
+        const listaAvaliacoes = document.getElementById("lista-avaliacoes");
+
+        async function carregarAvaliacoes() {
+
+            const { data, error } = await supabaseClient
+                .from("avaliacoes")
+                .select("*")
+                .order("id", { ascending: false });
+
+            if (error) {
+                console.error("Erro ao buscar avaliações:", error.message);
+                return;
+            }
+
+            if (!data || data.length === 0) {
+                mediaElemento.textContent = "--";
+                quantidadeElemento.textContent = "Ainda não há avaliações.";
+                listaAvaliacoes.innerHTML = "";
+                return;
+            }
+
+            const somaEstrelas = data.reduce(
+                (total, item) => total + Number(item.estrelas),
+                0
+            );
+
+            const media = (somaEstrelas / data.length).toFixed(1);
+
+            mediaElemento.textContent = `${media} ★`;
+
+            quantidadeElemento.textContent =
+                `${data.length} avaliação(ões) recebida(s).`;
+
+            listaAvaliacoes.innerHTML = "";
+
+            data.forEach(item => {
+
+                if (item.comentario && item.comentario.trim() !== "") {
+
+                    const avaliacao = document.createElement("div");
+                    avaliacao.className = "item-avaliacao";
+
+                    const estrelas = document.createElement("strong");
+                    estrelas.textContent = "★".repeat(Number(item.estrelas));
+
+                    const comentario = document.createElement("p");
+                    comentario.textContent = item.comentario;
+
+                    avaliacao.appendChild(estrelas);
+                    avaliacao.appendChild(comentario);
+
+                    listaAvaliacoes.appendChild(avaliacao);
+                }
+
+            });
+        }
+
+        formAvaliacao.addEventListener("submit", async function(evento) {
+
+            evento.preventDefault();
+
+            const estrelaSelecionada = document.querySelector(
+                'input[name="estrelas"]:checked'
+            );
+
+            const comentarioTexto = document.getElementById(
+                "comentario-avaliacao"
+            ).value.trim();
+
+            if (!estrelaSelecionada) {
+                alert("Por favor, selecione uma nota de 1 a 5 estrelas.");
+                return;
+            }
+
+            const novaAvaliacao = {
+                estrelas: Number(estrelaSelecionada.value),
+                comentario: comentarioTexto
+            };
+
+            const { error } = await supabaseClient
+                .from("avaliacoes")
+                .insert([novaAvaliacao]);
+
+            if (error) {
+                alert("Erro ao enviar avaliação: " + error.message);
+                console.error(error);
+                return;
+            }
+
+            alert("Obrigado pela sua avaliação!");
+
+            formAvaliacao.reset();
+
+            await carregarAvaliacoes();
+        });
+
+        carregarAvaliacoes();
+    </script>
+
+</body>
 </html>
