@@ -1041,3 +1041,289 @@ html[data-tema="escuro"] body {
 }
 
 html[data-tema="escuro"] a
+
+
+
+/* Correção geral de largura */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+main {
+    width: min(1120px, calc(100% - 40px));
+    max-width: 100%;
+    min-width: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.apresentacao,
+.atalhos,
+.cartao-conteudo,
+.secao-avaliacoes {
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* Ajustes para tablets */
+@media (max-width: 850px) {
+    main {
+        width: calc(100% - 32px);
+    }
+
+    .apresentacao {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .atalhos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .atalho {
+        min-width: 0;
+    }
+}
+
+/* Ajustes para celulares */
+@media (max-width: 600px) {
+    #cabecalho-principal {
+        width: 100%;
+        padding: 15px 18px;
+    }
+
+    nav {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px 10px;
+        padding: 10px 8px;
+    }
+
+    nav a {
+        font-size: 11px;
+        white-space: normal;
+    }
+
+    .acessibilidade {
+        flex-basis: 100%;
+        justify-content: center;
+        margin: 5px 0 0;
+    }
+
+    main {
+        width: calc(100% - 28px);
+        margin: 22px auto;
+        padding: 0;
+    }
+
+    .inicio {
+        margin-top: 15px;
+    }
+
+    .apresentacao {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    .apresentacao h1 {
+        font-size: clamp(38px, 11vw, 52px);
+        overflow-wrap: break-word;
+    }
+
+    .apresentacao-visual {
+        width: 100%;
+        min-width: 0;
+        min-height: 160px;
+        padding: 20px 12px;
+    }
+
+    .simbolos-religiosos {
+        font-size: 35px;
+    }
+
+    .atalhos {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .atalho {
+        width: 100%;
+        min-height: 95px;
+        padding: 17px;
+    }
+
+    .cartao-conteudo {
+        width: 100%;
+        padding: 22px 17px;
+    }
+
+    .secao-avaliacoes {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px 15px;
+    }
+
+    .resumo-avaliacoes {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+    }
+
+    .distribuicao-avaliacoes {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .linha-nota {
+        grid-template-columns: 35px minmax(0, 1fr) 25px;
+    }
+
+    #lista-avaliacoes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .item-avaliacao {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    footer {
+        width: 100%;
+        padding: 16px 10px;
+    }
+}
+
+/* Modo escuro */
+html[data-tema="escuro"] body {
+    background: #21191b;
+    color: #f4eae5;
+}
+
+html[data-tema="escuro"] #cabecalho-principal,
+html[data-tema="escuro"] nav {
+    background: #291e21;
+    border-color: #514047;
+}
+
+html[data-tema="escuro"] .marca,
+html[data-tema="escuro"] .marca strong,
+html[data-tema="escuro"] nav a {
+    color: #f0c4cc;
+}
+
+html[data-tema="escuro"] .marca small {
+    color: #c5b3ad;
+}
+
+html[data-tema="escuro"] .apresentacao,
+html[data-tema="escuro"] .cartao-conteudo,
+html[data-tema="escuro"] .secao-avaliacoes,
+html[data-tema="escuro"] .resumo-avaliacoes,
+html[data-tema="escuro"] .item-avaliacao {
+    background: #302326;
+    border-color: #514047;
+    color: #f4eae5;
+}
+
+html[data-tema="escuro"] .apresentacao-visual {
+    background: #291e21;
+}
+
+html[data-tema="escuro"] .apresentacao h1,
+html[data-tema="escuro"] .frase-destaque,
+html[data-tema="escuro"] .mensagem-final p {
+    color: #f4eae5;
+}
+
+html[data-tema="escuro"] .texto-intro,
+html[data-tema="escuro"] .cartao-conteudo p,
+html[data-tema="escuro"] .cartao-conteudo li,
+html[data-tema="escuro"] .atalho-conteudo small {
+    color: #c5b3ad;
+}
+
+html[data-tema="escuro"] .atalho {
+    background: #302326;
+    border-color: #514047;
+    color: #f4eae5;
+}
+
+html[data-tema="escuro"] .atalho:hover {
+    background: #382a2f;
+}
+
+html[data-tema="escuro"] .campo-grupo input,
+html[data-tema="escuro"] .campo-grupo select,
+html[data-tema="escuro"] .campo-grupo textarea,
+html[data-tema="escuro"] #form-avaliacao textarea {
+    background: #21191b;
+    color: #f4eae5;
+    border-color: #514047;
+}
+
+html[data-tema="escuro"] input::placeholder,
+html[data-tema="escuro"] textarea::placeholder {
+    color: #c5b3ad;
+}
+
+html[data-tema="escuro"] .resumo-nota,
+html[data-tema="escuro"] .barra-fundo {
+    background: #21191b;
+    border-color: #514047;
+}
+
+html[data-tema="escuro"] .quantidade-nota,
+html[data-tema="escuro"] #quantidade-avaliacoes {
+    color: #c5b3ad;
+}
+
+html[data-tema="escuro"] footer {
+    background: #291e21;
+    border-color: #514047;
+    color: #c5b3ad;
+}
+
+html[data-tema="escuro"] .aviso-publicacao,
+html[data-tema="escuro"] .aviso-imagens {
+    background: #38272c;
+    border-color: #78505b;
+}
+
+html[data-tema="escuro"] .notificacao {
+    background: #302326;
+    border-color: #514047;
+    color: #f4eae5;
+}
+
+/* Transição do tema */
+body,
+header,
+nav,
+main,
+footer,
+.apresentacao,
+.apresentacao-visual,
+.atalho,
+.cartao-conteudo,
+.secao-avaliacoes,
+.resumo-avaliacoes,
+.item-avaliacao,
+input,
+textarea,
+select {
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease;
+}
