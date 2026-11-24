@@ -1327,3 +1327,35 @@ select {
         color .3s ease,
         border-color .3s ease;
 }
+
+
+
+/* AVISOS NO MODO ESCURO */
+
+html[data-tema="escuro"] .aviso-publicacao,
+html[data-tema="escuro"] .aviso-imagens {
+    background: #302326;
+    border: 1px solid #78505b;
+    border-left: 5px solid #d58b9a;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+}
+
+html[data-tema="escuro"] .aviso-publicacao p,
+html[data-tema="escuro"] .aviso-imagens p {
+    color: #f4eae5;
+    line-height: 1.8;
+}
+
+html[data-tema="escuro"] .aviso-publicacao strong,
+html[data-tema="escuro"] .aviso-imagens strong {
+    color: #f0c4cc;
+}
+
+html[data-tema="escuro"] .aviso-publicacao a,
+html[data-tema="escuro"] .aviso-imagens a {
+    color: #f0a9ba;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
