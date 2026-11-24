@@ -1359,3 +1359,111 @@ html[data-tema="escuro"] .aviso-imagens a {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
+
+
+
+/* Modal de agradecimento */
+
+.modal-agradecimento {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(20, 13, 15, .65);
+    backdrop-filter: blur(5px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-agradecimento.ativo {
+    display: flex;
+}
+
+.modal-conteudo {
+    width: 100%;
+    max-width: 420px;
+    padding: 38px 30px;
+    text-align: center;
+    background: var(--branco);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+    animation: aparecer-modal .3s ease;
+}
+
+.modal-detalhe {
+    display: block;
+    color: var(--vinho);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.modal-conteudo h2 {
+    color: var(--vinho);
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 8px;
+}
+
+.modal-subtitulo {
+    color: var(--dourado);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.modal-conteudo p {
+    line-height: 1.7;
+    color: var(--texto-suave);
+}
+
+.modal-conteudo button {
+    margin-top: 22px;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 8px;
+    background: var(--vinho);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.modal-conteudo button:hover {
+    background: var(--vinho-escuro);
+}
+
+html[data-tema="escuro"] .modal-conteudo {
+    background: #302326;
+    border-color: #78505b;
+    color: #f4eae5;
+}
+
+html[data-tema="escuro"] .modal-conteudo h2 {
+    color: #f0c4cc;
+}
+
+html[data-tema="escuro"] .modal-conteudo p {
+    color: #e0cfca;
+}
+
+@keyframes aparecer-modal {
+    from {
+        opacity: 0;
+        transform: translateY(12px) scale(.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-conteudo {
+        padding: 30px 22px;
+    }
+
+    .modal-conteudo h2 {
+        font-size: 24px;
+    }
+}
